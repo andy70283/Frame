@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>membercenter-done</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        nav {
+            position: fixed;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            color: #3b3b3b;
+        }
+
+        ul li a {
+            font-size: 12px;
+            font-weight: 700;
+            color: #3b3b3b;
+        }
+
+        ul li {
+            line-height: 14.52px;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 70px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #FF6D35;
+            padding: 10px 33px;
+            z-index: 8;
+        }
+
+        .bars-icon {
+            width: 19px;
+            height: 19px;
+            color: #3b3b3b;
+            background-image: url(./logo-img/bars-solid.svg);
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        .container {
+            padding: 0;
+            margin: 0;
+        }
+
+        .running-logo {
+            width: 91px;
+            height: 50px;
+            background-image: url(./logo-img/Running-Man-LOGO1.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transform: translate(-50%, 0);
+        }
+
+        .ham-list {
+            width: 176px;
+            display: none;
+            border-radius: 12px;
+            background-color: white;
+        }
+
+        #ham-switch-menu:checked~.ham-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #ham-switch-menu:not(:checked)~.ham-list {
+            display: none;
+        }
+
+        .list-top {
+            width: 100%;
+            height: 70px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            padding: 27px 17px 24px 33px;
+        }
+
+        .bars-icon-inner {
+            background-image: url(./logo-img/bars-solid-og.svg);
+            width: 19px;
+            height: 19px;
+            background-position: center;
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        .search {
+            height: 44px;
+        }
+
+        .custom-search {
+            border: 2px solid #333;
+            border-radius: 25px;
+            padding: 5px 15px;
+            width: 151px;
+            height: 28px;
+            background-color: white;
+        }
+
+        .custom-search input {
+            width: 95px;
+            height: 24px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .custom-search input::placeholder {
+            color: #3b3b3b;
+        }
+
+        .custom-search button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .custom-search button i {
+            font-size: 14px;
+            color: #FF6D35;
+        }
+
+        .list-icon {
+            width: 16px;
+            height: 16px;
+            background-image: url(./logo-img/message-solid.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .list-icon-news {
+            background-image: url(./logo-img/message-solid.svg);
+        }
+
+        .list-icon-allgames {
+            background-image: url(./logo-img/trophy-solid.svg);
+        }
+
+        .list-icon-helpcenter {
+            background-image: url(./logo-img/user-regular.svg);
+        }
+
+        .list-icon-che-right {
+            background-image: url(./logo-img/chevron-right-solid.svg);
+        }
+
+        .list-icon-che-down {
+            background-image: url(./logo-img/chevron-down-solid.svg);
+        }
+
+        .accordion-item {
+            width: 176px;
+            color: #3b3b3b;
+            border: none;
+        }
+
+        .accordion-button {
+            height: 40px;
+            padding: 0px 10px 0px 13px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            color: #3b3b3b;
+            background-color: white;
+            border-radius: 0;
+        }
+
+
+        .accordion-item:first-of-type .accordion-button,
+        .accordion-item:last-of-type .accordion-button.collapsed {
+            border-radius: 0;
+        }
+
+        .accordion-button:focus,
+        .accordion-button:not(.collapsed) {
+            box-shadow: none;
+            background-color: #009FE7;
+            color: white;
+        }
+
+        .btn-news:focus .list-icon-news {
+            background-image: url(./logo-img/message-solid-wh.svg);
+        }
+
+        .btn-news:focus .list-icon-che-right {
+            background-image: url(./logo-img/chevron-right-solid-wh.svg);
+        }
+
+        .btn-helpcenter:focus .list-icon-helpcenter {
+            background-image: url(./logo-img/user-regular-wh.svg);
+        }
+
+        .btn-helpcenter:focus .list-icon-che-down {
+            background-image: url(./logo-img/chevron-up-solid.svg);
+        }
+
+        .btn-allgames:focus .list-icon-allgames {
+            background-image: url(./logo-img/trophy-solid-wh.svg);
+        }
+
+        .btn-allgames:focus .list-icon-che-down {
+            background-image: url(./logo-img/chevron-up-solid.svg);
+        }
+
+        .accordion-button::after {
+            display: none;
+        }
+
+        .collapse::after {
+            width: auto;
+            height: auto;
+        }
+
+        .accordion-body {
+            height: 42px;
+            background-color: #ececec;
+            color: #3b3b3b;
+            padding: 0;
+            line-height: 42px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 400;
+            border-bottom: 1px solid white;
+        }
+
+        .accordion-body:hover {
+            color: #009FE7;
+        }
+
+        .membercenter {
+            width: 100%;
+            height: 40px;
+            background-color: #FF6D35;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            color: white;
+            font-weight: 700;
+            line-height: 40px;
+            text-align: center;
+            letter-spacing: 6%;
+        }
+
+        footer {
+            height: 336px;
+            width: 100%;
+            background-color: #ececec;
+            padding: 0px 10px;
+        }
+
+        .footer-body {
+            border-top: 1px solid #3b3b3b;
+        }
+
+        .footer-top {
+            height: 144px;
+            padding: 16px 20px;
+        }
+
+        .footer-middle {
+            height: 120px;
+            padding: 28px 20px;
+        }
+
+        .footer-bottom {
+            height: 72px;
+            padding: 15px 20px 14px;
+        }
+
+        .title {
+            font-weight: 700;
+            line-height: 19px;
+        }
+
+        .more-info {
+            height: 64px;
+        }
+
+        .contact-info {
+            height: 69px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .social-icon-line {
+            background-image: url(./logo-img/line-brands-solid.svg);
+        }
+
+        .social-icon-ig {
+            background-image: url(./logo-img/square-instagram-brands-solid.svg);
+        }
+
+        .social-icon-fb {
+            background-image: url(./logo-img/square-facebook-brands-solid.svg);
+        }
+
+        .social-icon-yt {
+            background-image: url(./logo-img/square-youtube-brands-solid.svg);
+        }
+
+
+        .rice-container {
+            padding: 30px;
+            line-height: 2;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 70px;
+            font-family: 'Arial', sans-serif;
+            color: #3b3b3b;
+        }
+
+        .rice-card {
+            width: 343px;
+            height: 616px;
+            border-radius: 8px;
+            border: 2px solid black;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+
+        .rice-card-header {
+            text-align: center;
+            font-weight: 400;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .rice-nav-tabs {
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 30px;
+        }
+
+        .rice-nav-tabs a {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;
+            color:#585461;
+            border-bottom: 2px solid transparent;
+        }
+    
+        .rice-nav-tabs .active {
+            border-bottom-color: #FF6D35;
+        }
+
+        .rice-nav-tabs a:focus {
+            color: #FF6D35;
+            border-bottom-color: #FF6D35;
+        }
+
+        .rice-form-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .rice-form-group-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 5px;
+        }
+
+        .rice-form-control {
+            width: 100%;
+            height: 42px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .rice-form-control-last {
+            margin-bottom: 5px;
+        }
+
+        .rice-form-control:focus {
+            outline: none;
+            border-color: #FF6D35;
+        }
+
+        .rice-forgot-password {
+            text-align: right;
+            font-size:12px;
+            color: #9b2E2E;
+        }
+
+        .rice-box {
+            display: flex;
+            align-items: center;
+        }
+
+        .rice-refresh-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .rice-captcha {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: #f5f2a5;
+            border: 1px solid #585461;
+            color: #000;
+            border-radius: 8px;
+        }
+
+        .rice-btn {
+            display: block;
+            width: 100%;
+            padding: 4px;
+            background-color: #FF6D35;
+            color: #fff;
+            text-align: center;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 40px;
+        }
+
+        .rice-btn:hover {
+            background-color: #009FE7;
+        }
+
+    </style>
+</head>
+
+<body class="d-flex flex-column justify-content-center align-content-center">
+    <!-- 漢堡條 -->
+    <nav class="navbar">
+        <div class="container">
+            <!-- 漢堡按鈕 -->
+            <input type="checkbox" name="" id="ham-switch-menu" hidden>
+            <label for="ham-switch-menu">
+                <div class="ham-switch-menu-block" tabindex="1">
+                    <div class="bars-icon"></div>
+                </div>
+            </label>
+            <a href="" class="running-logo position-absolute start-50"></a>
+            <div class="ham-list position-absolute top-0 start-0" id="navbarContent">
+                <!-- 第一列：搜尋欄 -->
+                <div class="list-top">
+                    <label for="ham-switch-menu">
+                        <div class="bars-icon-inner"></div>
+                    </label>
+                </div>
+                <div class="search d-flex align-items-center">
+                    <div class="custom-search d-flex align-items-center justify-content-between">
+                        <input type="text" placeholder="搜尋">
+                        <button type="submit">
+                            <i class="bi bi-search"></i> <!-- Bootstrap 圖標 -->
+                        </button>
+                    </div>
+                </div>
+                <!-- 第二列：手風琴選單 1 -->
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFirst">
+                            <a href="">
+                                <button class="accordion-button collapsed btn-news" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseFirst" aria-expanded="false"
+                                    aria-controls="collapseFirst">
+                                    <div class="list-icon list-icon-news"></div>
+                                    最新消息
+                                    <div class="list-icon list-icon-che-right"></div>
+                                </button></a>
+                        </h2>
+                        <div id="collapseFirst" class="accordion-collapse collapse" aria-labelledby="headingFirst">
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed btn-allgames" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
+                                aria-controls="collapseOne">
+                                <div class="list-icon list-icon-allgames"></div>
+                                全部賽事
+                                <div class="list-icon list-icon-che-down"></div>
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                            <a href="">
+                                <div class="accordion-body">
+                                    一般賽事
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="accordion-body">
+                                    親子路跑
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="accordion-body">
+                                    IP路跑
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="accordion-body border-bottom-0">
+                                    歷屆賽事
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- 第三列：手風琴選單 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed btn-helpcenter" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                aria-controls="collapseTwo">
+                                <div class="list-icon list-icon-helpcenter"></div>
+                                客服中心
+                                <div class="list-icon list-icon-che-down"></div>
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                            <a href="">
+                                <div class="accordion-body">
+                                    常見問題
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="accordion-body">
+                                    退費申請
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="accordion-body border-bottom-0">
+                                    聯絡我們
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="" class="membercenter">
+                    登入/會員中心
+                </a>
+            </div>
+        </div>
+
+    </nav>
+    <main class="rice-container">
+        <!-- Login Card -->
+        <div class="rice-card">
+            <div class="rice-card-header">會員中心</div>
+
+            <!-- Tabs -->
+            <div class="rice-nav-tabs">
+                <a href="#" class="active">會員登入</a>
+                <a href="#" class="active-none" tabindex="1">會員註冊</a>
+            </div>
+
+            <!-- Form -->
+            <form>
+                <label for="email" class="rice-form-label">帳號 (Email格式)</label>
+                <input type="email" id="email" class="rice-form-control" placeholder="請輸入您的Email">
+                <br>
+                <div class="rice-form-group rice-form-group-flex">
+                    <label for="password" class="rice-form-label">密碼</label>
+                    <a href="#" class="rice-forgot-password">忘記密碼</a>
+                </div>
+                <input type="password" id="password" class="rice-form-control" placeholder="請輸入密碼">
+
+
+                <label for="captcha" class="rice-form-label">驗證碼</label>
+                <input type="text" id="captcha" class="rice-form-control rice-form-control-last" placeholder="輸入驗證碼">
+                <div class="rice-box">
+                    <span class="rice-captcha">QeS24a</span>
+                    <button type="button" class="rice-refresh-btn" aria-label="重新整理驗證碼">
+                        <img src="./img/ic_baseline-change-circle.png" alt="刷新驗證碼">
+                    </button>
+                </div>
+                <button type="submit" class="rice-btn">登入</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-body footer-top d-flex flex-column justify-content-between">
+            <div class="title">聯絡我們</div>
+            <ul class="contact-info d-flex flex-column justify-content-between">
+                <li><a href="">
+                        信箱：fcusport@gmail.com
+                    </a>
+                <li><a href="">
+                        電話：(04)2451-7250#5985
+                    </a>
+                <li><a href="">
+                        地址：台中市西屯區文華路100號
+                    </a>
+            </ul>
+        </div>
+        <div class="footer-body footer-middle">
+            <ul class="more-info d-flex flex-column justify-content-between">
+                <li><a href="">
+                        影音製作服務
+                    </a>
+                <li><a href="">
+                        服務條款
+                    </a>
+                <li><a href="">
+                        隱私權政策
+                    </a>
+            </ul>
+        </div>
+        <div class="footer-body footer-bottom d-flex justify-content-between">
+            <a href="" class="social-icon social-icon-line"></a>
+            <a href="" class="social-icon social-icon-ig"></a>
+            <a href="" class="social-icon social-icon-fb"></a>
+            <a href="" class="social-icon social-icon-yt"></a>
+        </div>
+    </footer>
+</body>
+
+</html>
