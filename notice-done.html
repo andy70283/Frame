@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>notice-done</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        nav {
+            position: fixed;
+        }
+
+        footer ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            color: #3b3b3b;
+        }
+
+        footer ul li a {
+            font-size: 12px;
+            font-weight: 700;
+            color: #3b3b3b;
+        }
+
+        footer ul li {
+            line-height: 14.52px;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 70px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #FF6D35;
+            padding: 10px 33px;
+            z-index: 8;
+        }
+
+        .bars-icon {
+            width: 19px;
+            height: 19px;
+            color: #3b3b3b;
+            background-image: url(./logo-img/bars-solid.svg);
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        .container {
+            padding: 0;
+            margin: 0;
+        }
+
+        .running-logo {
+            width: 91px;
+            height: 50px;
+            background-image: url(./logo-img/Running-Man-LOGO1.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transform: translate(-50%, 0);
+        }
+
+        .ham-list {
+            width: 176px;
+            display: none;
+            border-radius: 12px;
+            background-color: white;
+        }
+
+        #ham-switch-menu:checked~.ham-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #ham-switch-menu:not(:checked)~.ham-list {
+            display: none;
+        }
+
+        .list-top {
+            width: 100%;
+            height: 70px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            padding: 27px 17px 24px 33px;
+        }
+
+        .bars-icon-inner {
+            background-image: url(./logo-img/bars-solid-og.svg);
+            width: 19px;
+            height: 19px;
+            background-position: center;
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        .search {
+            height: 44px;
+        }
+
+        .custom-search {
+            border: 2px solid #333;
+            border-radius: 25px;
+            padding: 5px 15px;
+            width: 151px;
+            height: 28px;
+            background-color: white;
+        }
+
+        .custom-search input {
+            width: 95px;
+            height: 24px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .custom-search input::placeholder {
+            color: #3b3b3b;
+        }
+
+        .custom-search button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .custom-search button i {
+            font-size: 14px;
+            color: #FF6D35;
+        }
+
+        .list-icon {
+            width: 16px;
+            height: 16px;
+            background-image: url(./logo-img/message-solid.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .list-icon-news {
+            background-image: url(./logo-img/message-solid.svg);
+        }
+
+        .list-icon-allgames {
+            background-image: url(./logo-img/trophy-solid.svg);
+        }
+
+        .list-icon-helpcenter {
+            background-image: url(./logo-img/user-regular.svg);
+        }
+
+        .list-icon-che-right {
+            background-image: url(./logo-img/chevron-right-solid.svg);
+        }
+
+        .list-icon-che-down {
+            background-image: url(./logo-img/chevron-down-solid.svg);
+        }
+
+        .accordion-item {
+            width: 176px;
+            color: #3b3b3b;
+            border: none;
+        }
+
+        .accordion-button {
+            height: 40px;
+            padding: 0px 10px 0px 13px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            color: #3b3b3b;
+            background-color: white;
+            border-radius: 0;
+        }
+
+
+        .accordion-item:first-of-type .accordion-button,
+        .accordion-item:last-of-type .accordion-button.collapsed {
+            border-radius: 0;
+        }
+
+        .accordion-button:focus,
+        .accordion-button:not(.collapsed) {
+            box-shadow: none;
+            background-color: #009FE7;
+            color: white;
+        }
+
+        .btn-news:focus .list-icon-news {
+            background-image: url(./logo-img/message-solid-wh.svg);
+        }
+
+        .btn-news:focus .list-icon-che-right {
+            background-image: url(./logo-img/chevron-right-solid-wh.svg);
+        }
+
+        .btn-helpcenter:focus .list-icon-helpcenter {
+            background-image: url(./logo-img/user-regular-wh.svg);
+        }
+
+        .btn-helpcenter:focus .list-icon-che-down {
+            background-image: url(./logo-img/chevron-up-solid.svg);
+        }
+
+        .btn-allgames:focus .list-icon-allgames {
+            background-image: url(./logo-img/trophy-solid-wh.svg);
+        }
+
+        .btn-allgames:focus .list-icon-che-down {
+            background-image: url(./logo-img/chevron-up-solid.svg);
+        }
+
+        .accordion-button::after {
+            display: none;
+        }
+
+        .collapse::after {
+            width: auto;
+            height: auto;
+        }
+
+        .accordion-body {
+            height: 42px;
+            background-color: #ececec;
+            color: #3b3b3b;
+            padding: 0;
+            line-height: 42px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 400;
+            border-bottom: 1px solid white;
+        }
+
+        .accordion-body:hover {
+            color: #009FE7;
+        }
+
+        .membercenter {
+            width: 100%;
+            height: 40px;
+            background-color: #FF6D35;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            color: white;
+            font-weight: 700;
+            line-height: 40px;
+            text-align: center;
+            letter-spacing: 6%;
+        }
+
+        footer {
+            height: 336px;
+            width: 100%;
+            background-color: #ececec;
+            padding: 0px 10px;
+        }
+
+        .footer-body {
+            border-top: 1px solid #3b3b3b;
+        }
+
+        .footer-top {
+            height: 144px;
+            padding: 16px 20px;
+        }
+
+        .footer-middle {
+            height: 120px;
+            padding: 28px 20px;
+        }
+
+        .footer-bottom {
+            height: 72px;
+            padding: 15px 20px 14px;
+        }
+
+        .title {
+            font-weight: 700;
+            line-height: 19px;
+        }
+
+        .more-info {
+            height: 64px;
+        }
+
+        .contact-info {
+            height: 69px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .social-icon-line {
+            background-image: url(./logo-img/line-brands-solid.svg);
+        }
+
+        .social-icon-ig {
+            background-image: url(./logo-img/square-instagram-brands-solid.svg);
+        }
+
+        .social-icon-fb {
+            background-image: url(./logo-img/square-facebook-brands-solid.svg);
+        }
+
+        .social-icon-yt {
+            background-image: url(./logo-img/square-youtube-brands-solid.svg);
+        }
+
+        main {
+            margin-top: 70px;
+        }
+
+        /* body {
+            width: 375px;
+            font-family: 'Arial', sans-serif;        
+            background-color: black;
+        } */
+
+        .rice-content {
+            /* height: 1856px; */
+            background-color: white;
+            padding: 20px;
+            line-height: 2;
+            font-size: 12px;
+        }
+
+        .btn-custom {
+            width: 154px;
+            height: 76px;
+            background-color: #ff6d35;
+            color: white;
+            border: none;
+            margin: 5px;
+        }
+
+        .btn-custom:hover {
+            background-color: #009FE7;
+            color: white;
+        }
+
+        .rice-btn {
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        .rice-btn span {
+            font-size: 14px;
+        }
+
+        .rice-form {
+            height: 98px;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #fde6e6;
+            box-shadow: 0 4px 4px gray;
+        }
+
+        .rice-content h2 {
+            font-weight: bolder;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rice-content h5 {
+            font-weight: bold;
+            color: #ff6d35;
+        }
+
+        .rice-content h6 {
+            font-size: 12px;
+            line-height: 2;
+        }
+
+    </style>
+</head>
+
+<body class="d-flex flex-column justify-content-center align-content-center">
+    <!-- 漢堡條 -->
+    <nav class="navbar">
+        <div class="container">
+            <!-- 漢堡按鈕 -->
+            <input type="checkbox" name="" id="ham-switch-menu" hidden>
+            <label for="ham-switch-menu">
+                <div class="ham-switch-menu-block" tabindex="1">
+                    <div class="bars-icon"></div>
+                </div>
+            </label>
+            <a href="" class="running-logo position-absolute start-50"></a>
+            <div class="ham-list position-absolute top-0 start-0" id="navbarContent">
+                <!-- 第一列：搜尋欄 -->
+                <div class="list-top">
+                    <label for="ham-switch-menu">
+                        <div class="bars-icon-inner"></div>
+                    </label>
+                </div>
+                <div class="search d-flex align-items-center">
+                    <div class="custom-search d-flex align-items-center justify-content-between">
+                        <input type="text" placeholder="搜尋">
+                        <button type="submit">
+                            <i class="bi bi-search"></i> <!-- Bootstrap 圖標 -->
+                        </button>
+                    </div>
+                </div>
+                <!-- 第二列：手風琴選單 1 -->
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFirst">
+                            <a href="">
+                                <button class="accordion-button collapsed btn-news" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseFirst" aria-expanded="false"
+                                    aria-controls="collapseFirst">
+                                    <div class="list-icon list-icon-news"></div>
+                                    最新消息
+                                    <div class="list-icon list-icon-che-right"></div>
+                                </button></a>
+                        </h2>
+                        <div id="collapseFirst" class="accordion-collapse collapse" aria-labelledby="headingFirst">
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed btn-allgames" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
+                                aria-controls="collapseOne">
+                                <div class="list-icon list-icon-allgames"></div>
+                                全部賽事
+                                <div class="list-icon list-icon-che-down"></div>
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                            <a href="">
+                                <div class="accordion-body">
+                                    一般賽事
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="accordion-body">
+                                    親子路跑
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="accordion-body">
+                                    IP路跑
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="accordion-body border-bottom-0">
+                                    歷屆賽事
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- 第三列：手風琴選單 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed btn-helpcenter" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                aria-controls="collapseTwo">
+                                <div class="list-icon list-icon-helpcenter"></div>
+                                客服中心
+                                <div class="list-icon list-icon-che-down"></div>
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                            <a href="">
+                                <div class="accordion-body">
+                                    常見問題
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="accordion-body">
+                                    退費申請
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="accordion-body border-bottom-0">
+                                    聯絡我們
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="" class="membercenter">
+                    登入/會員中心
+                </a>
+            </div>
+        </div>
+
+    </nav>
+    <main>
+        <div class="rice-content">
+            <br>
+            <h2>活動注意事項與聲明</h2>
+            <br>
+            <h6>本人/團體，保證自身身心健康且健康狀況良好，自願參加活動，
+                並已詳細閱讀過活動簡章及主辦單位於活動前所公告之相關資訊，
+                且同意亦保證遵守大會於活動規程中所約定事項，對於選手
+                在活動中需自行負擔的危險性及責任已有一定的認知與了解，活
+                動中若發生任何意外事件，願意自行負責，一切責任與主辦單位無關。
+            </h6>
+            <br>
+            <h5>體能診斷自我評估項目</h5>
+            <br>
+            <ul>
+                <li>是否有醫師告訴過您，您的心臟有些問題，您只能做醫生建議的運動？</li>
+                <li>您是否曾在您從事體能活動時出現胸痛的現象？</li>
+                <li>最近一個月，在沒從事體能活動情況下，您是否曾出現胸痛的情形？</li>
+                <li>您是否曾因暈眩而失去平衡或意識的情況？</li>
+                <li>從事體能活動是不是會使得您的骨骼或關節的問題更嚴重或惡化？</li>
+                <li>您是否因高血壓或心臟疾病而需住院？</li>
+                <li>您是否有任何不適合體能活動的原因？</li>
+    
+            </ul>
+            <br>
+            <h5>注意事項</h5>
+            <br>
+            <ul>
+                <li>如果以上問題有一項為是，為了您的安全建議請勿報名本活動，並與您的醫師聯繫就診。</li>
+                <li>若是採團體報名，請團隊聯絡人務必告知團員以上注意事項。</li>
+                <li>本系統同時間只能操作一場報名/一個團體，若多開報名頁面或同時操作多團報名，可能會造成資料錯誤或遺失。</li>
+            </ul>
+            <br>
+            <h6>參賽資格︰</h6>
+            <ol>
+                <li>未滿18歲選手報名，必須填寫線上「家長同意書」。</li>
+                <li>6歲以下兒童需與18歲以上成人同時報名參賽。</li>
+                <li>活動起跑前未線上填寫「家長同意書」者，主辦單位有權拒絕該未成年報名者參加，且不予退費。</li>
+            </ol>
+            <br>
+            <ul>
+                <li>參賽物資之版權為本公司所有，尺寸表使用之方式，請實際丈量平常所穿之衣服尺寸為衡量標準。</li>
+                <li>所有參賽物資皆以實品為主，誤差值±3cm為國際標準容許範圍，視為正常誤差值。</li>
+                <li>
+                    如欲更改紀念品尺寸，請於報名截止日期前自行至報名系統上修改，報名截止日後不得以任何理由要求尺寸變更。</li>
+                <li>
+                    所有產品皆秉持著高品質、高品管製作技術，請詳細套量以免發生尺寸不合的情形，客製化訂做商品不適用鑑賞期，恕不接受任何退換。</li>
+                <li>報名時請詳加評估自身體能，報名日截止後，不得以任何理由要求更換人名、報名參賽項目或申請退費。</li>
+                <li>
+                    選手物資配達後，恕不受理更換，請參賽者於報名前依照簡章內提供之尺寸表謹慎選擇。</li>
+            </ul>
+            <br>
+            <h6>本人/團體一旦報名，視為同意本網頁公告活動規程中所有規定。
+                本活動規程如有未盡事宜，得由大會修正後於本網頁公布之。
+                本人/團體同意活動畫面提供大會無償使用。
+                一旦選擇報名即同意上述聲明及隱私政策條款！
+            </h6>
+            <br><br>
+    
+            <!-- Form Section -->
+            <div class="rice-form">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="rice-agreement1">
+                    <label class="form-check-label" for="rice-agreement1">
+                        已詳細閱讀、瞭解並同意運動報名網《 活動規範 》及《 免責聲明 》
+                    </label>
+                </div>
+                
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="rice-agreement2">
+                    <label class="form-check-label" for="rice-agreement2">
+                        已充分瞭解並同意上述《注意事項》與 簡章內容
+                    </label>
+                </div>
+            </div>
+            <br><br>
+            <!-- Buttons Section -->
+            <div class="rice-btn">
+                <button class="btn btn-custom">
+                    個人報名
+                    <br>
+                    <span>(僅限1人)</span>
+                </button>
+                <button class="btn btn-custom">
+                    團體報名
+                    <br>
+                    <span>(含2人以上)</span>
+                </button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-body footer-top d-flex flex-column justify-content-between">
+            <div class="title">聯絡我們</div>
+            <ul class="contact-info d-flex flex-column justify-content-between">
+                <li><a href="">
+                        信箱：fcusport@gmail.com
+                    </a>
+                <li><a href="">
+                        電話：(04)2451-7250#5985
+                    </a>
+                <li><a href="">
+                        地址：台中市西屯區文華路100號
+                    </a>
+            </ul>
+        </div>
+        <div class="footer-body footer-middle">
+            <ul class="more-info d-flex flex-column justify-content-between">
+                <li><a href="">
+                        影音製作服務
+                    </a>
+                <li><a href="">
+                        服務條款
+                    </a>
+                <li><a href="">
+                        隱私權政策
+                    </a>
+            </ul>
+        </div>
+        <div class="footer-body footer-bottom d-flex justify-content-between">
+            <a href="" class="social-icon social-icon-line"></a>
+            <a href="" class="social-icon social-icon-ig"></a>
+            <a href="" class="social-icon social-icon-fb"></a>
+            <a href="" class="social-icon social-icon-yt"></a>
+        </div>
+    </footer>
+</body>
+
+</html>
