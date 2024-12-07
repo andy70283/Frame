@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>活動注意事項與聲明</title>
+    <title>個人報名</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -23,20 +23,20 @@
             position: fixed;
         }
 
-        footer ul {
+        ul {
             padding: 0;
             margin: 0;
             list-style: none;
             color: #3b3b3b;
         }
 
-        footer ul li a {
+        ul li a {
             font-size: 12px;
             font-weight: 700;
             color: #3b3b3b;
         }
 
-        footer ul li {
+        ul li {
             line-height: 14.52px;
         }
 
@@ -329,75 +329,148 @@
             background-image: url(./logo-img/square-youtube-brands-solid.svg);
         }
 
-        main {
+        .register-container {
             margin-top: 70px;
+            margin: 0;
         }
 
-        /* body {
-            width: 375px;
-            font-family: 'Arial', sans-serif;        
-            background-color: black;
-        } */
-
-        .rice-content {
-            /* height: 1856px; */
-            background-color: white;
-            padding: 20px;
-            line-height: 2;
-            font-size: 12px;
+        .image {
+            margin-top: 70px;
+            width: 100%;
+            height: 371px;
+            background-position: center;
         }
 
-        .btn-custom {
-            width: 154px;
-            height: 76px;
-            background-color: #ff6d35;
-            color: white;
-            border: none;
-            margin: 5px;
+        .img-fluid {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .btn-custom:hover {
-            background-color: #009FE7;
-            color: white;
-        }
-
-        .rice-btn {
-            border-radius: 8px;
+        .activity-title {
+            font-size: 36px;
+            font-weight: 700;
             display: flex;
+            flex-direction: column;
+            justify-content:center;
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: 50px;
         }
 
-        .rice-btn span {
-            font-size: 14px;
-        }
-
-        .rice-form {
-            height: 98px;
-            border-radius: 8px;
-            padding: 10px;
-            background-color: #fde6e6;
-            box-shadow: 0 4px 4px gray;
-        }
-
-        .rice-content h2 {
-            font-weight: bolder;
+        .confirm-button {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            justify-content: end;
+            margin-top: 50px;
+            margin-bottom: 30px;
         }
 
-        .rice-content h5 {
+        span {
+            color: red;
+        }
+
+        label {
             font-weight: bold;
-            color: #ff6d35;
         }
 
-        .rice-content h6 {
+        .text {
+            margin-top: 40px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content:center;
+            align-items: center;
+        }
+
+        .box-1 {
+            width: 104px;
+            height: 44px;
+            background-color: white;
+            border: 4px solid orangered;
+            border-radius: 10px;
+            color: black;
+            font-size: 20px;
+            line-height: 36px;
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .progress-step {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .completed {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .inactive {
+            background-color: #e9ecef;
+            color: gray;
+        }
+
+        .line {
+            flex-grow: 1;
+            height: 2px;
+            background-color: #6c757d;
+            align-self: center;
+        }
+
+        .section {
+            width: 80%;
+            margin: auto;
+        }
+
+        .form-check-label {
             font-size: 12px;
-            line-height: 2;
+            font-weight: normal;
         }
 
+        .viewpostage {
+            color: #007bff;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .addresscheck {
+            color: gray;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .box-2 {
+            background-color: #FFE8E8;
+            width: 100%;
+            height: 143px;
+            padding: 15px;
+            margin-bottom: 14px;
+        }
+
+        .box-2text-m {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .box-2text-s {
+            font-size: 11px;
+            /* margin-top: 5px; */
+        }
     </style>
 </head>
 
@@ -514,96 +587,170 @@
         </div>
 
     </nav>
-    <main>
-        <div class="rice-content">
-            <br>
-            <h2>活動注意事項與聲明</h2>
-            <br>
-            <h6>本人/團體，保證自身身心健康且健康狀況良好，自願參加活動，
-                並已詳細閱讀過活動簡章及主辦單位於活動前所公告之相關資訊，
-                且同意亦保證遵守大會於活動規程中所約定事項，對於選手
-                在活動中需自行負擔的危險性及責任已有一定的認知與了解，活
-                動中若發生任何意外事件，願意自行負責，一切責任與主辦單位無關。
-            </h6>
-            <br>
-            <h5>體能診斷自我評估項目</h5>
-            <br>
-            <ul>
-                <li>是否有醫師告訴過您，您的心臟有些問題，您只能做醫生建議的運動？</li>
-                <li>您是否曾在您從事體能活動時出現胸痛的現象？</li>
-                <li>最近一個月，在沒從事體能活動情況下，您是否曾出現胸痛的情形？</li>
-                <li>您是否曾因暈眩而失去平衡或意識的情況？</li>
-                <li>從事體能活動是不是會使得您的骨骼或關節的問題更嚴重或惡化？</li>
-                <li>您是否因高血壓或心臟疾病而需住院？</li>
-                <li>您是否有任何不適合體能活動的原因？</li>
-    
-            </ul>
-            <br>
-            <h5>注意事項</h5>
-            <br>
-            <ul>
-                <li>如果以上問題有一項為是，為了您的安全建議請勿報名本活動，並與您的醫師聯繫就診。</li>
-                <li>若是採團體報名，請團隊聯絡人務必告知團員以上注意事項。</li>
-                <li>本系統同時間只能操作一場報名/一個團體，若多開報名頁面或同時操作多團報名，可能會造成資料錯誤或遺失。</li>
-            </ul>
-            <br>
-            <h6>參賽資格︰</h6>
-            <ol>
-                <li>未滿18歲選手報名，必須填寫線上「家長同意書」。</li>
-                <li>6歲以下兒童需與18歲以上成人同時報名參賽。</li>
-                <li>活動起跑前未線上填寫「家長同意書」者，主辦單位有權拒絕該未成年報名者參加，且不予退費。</li>
-            </ol>
-            <br>
-            <ul>
-                <li>參賽物資之版權為本公司所有，尺寸表使用之方式，請實際丈量平常所穿之衣服尺寸為衡量標準。</li>
-                <li>所有參賽物資皆以實品為主，誤差值±3cm為國際標準容許範圍，視為正常誤差值。</li>
-                <li>
-                    如欲更改紀念品尺寸，請於報名截止日期前自行至報名系統上修改，報名截止日後不得以任何理由要求尺寸變更。</li>
-                <li>
-                    所有產品皆秉持著高品質、高品管製作技術，請詳細套量以免發生尺寸不合的情形，客製化訂做商品不適用鑑賞期，恕不接受任何退換。</li>
-                <li>報名時請詳加評估自身體能，報名日截止後，不得以任何理由要求更換人名、報名參賽項目或申請退費。</li>
-                <li>
-                    選手物資配達後，恕不受理更換，請參賽者於報名前依照簡章內提供之尺寸表謹慎選擇。</li>
-            </ul>
-            <br>
-            <h6>本人/團體一旦報名，視為同意本網頁公告活動規程中所有規定。
-                本活動規程如有未盡事宜，得由大會修正後於本網頁公布之。
-                本人/團體同意活動畫面提供大會無償使用。
-                一旦選擇報名即同意上述聲明及隱私政策條款！
-            </h6>
-            <br><br>
-    
-            <!-- Form Section -->
-            <div class="rice-form">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="rice-agreement1">
-                    <label class="form-check-label" for="rice-agreement1">
-                        已詳細閱讀、瞭解並同意運動報名網《 活動規範 》及《 免責聲明 》
-                    </label>
-                </div>
-                
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="rice-agreement2">
-                    <label class="form-check-label" for="rice-agreement2">
-                        已充分瞭解並同意上述《注意事項》與 簡章內容
-                    </label>
-                </div>
+    <main class="register-container">
+        <div class="image">
+            <img src="./logo-img/chii圖片.jpg" class="img-fluid" alt="image">
+        </div>
+        <div class="activity-title">
+            <div class="text">
+                <div class="fs-1">Chiikawa</div>
+                <div class="fs-2">路跑活動</div>
             </div>
-            <br><br>
-            <!-- Buttons Section -->
-            <div class="rice-btn">
-                <button class="btn btn-custom">
-                    個人報名
-                    <br>
-                    <span>(僅限1人)</span>
-                </button>
-                <button class="btn btn-custom">
-                    團體報名
-                    <br>
-                    <span>(含2人以上)</span>
-                </button>
+            <div class="box">
+                <div class="box-1">個人報名</div>
             </div>
         </div>
+        <div class="section">
+            <div class="step my-5">
+                <div class="d-flex justify-content-between align-items-center">
+                    <!-- Step 1 -->
+                    <div class="progress-step active">1</div>
+                    <div class="line"></div>
+                    <!-- Step 2 -->
+                    <div class="progress-step inactive">2</div>
+                    <div class="line"></div>
+                    <!-- Step 3 -->
+                    <div class="progress-step inactive">3</div>
+                </div>
+                <div class="d-flex justify-content-between mt-2">
+                    <div class="text-center">填寫<br>個人資料</div>
+                    <div class="text-center">付款</div>
+                    <div class="text-center">繳費狀態</div>
+                </div>
+            </div>
+            <div class="form">
+                <div class="mb-3">
+                    <label for="nationality" class="form-label"><span>*</span>國籍 / Nationality</label>
+                    <select id="nationality" class="form-select">
+                        <option selected>請選擇</option>
+                        <option value="1">台灣人</option>
+                        <option value="2">外國人</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="nationality" class="form-label"><span>*</span>國家 / Country</label>
+                    <select id="nationality" class="form-select">
+                        <option selected>請選擇</option>
+                        <option value="1">JAPAN</option>
+                        <option value="2">UK</option>
+                        <option value="3">China</option>
+                        <option value="2">USA</option>
+                        <option value="2">ITALY</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label"><span>*</span>姓名 / Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="請輸入姓名">
+                </div>
+                <div class="mb-3">
+                    <label for="gender" class="form-label"><span>*</span>性別 / Gender</label>
+                    <select id="gender" class="form-select">
+                        <option selected>請選擇</option>
+                        <option value="1">男</option>
+                        <option value="2">女</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="idnumber" class="form-label"><span>*</span>身分證字號 / ID Number</label>
+                    <input type="text" id="idnumber" class="form-control" placeholder="身分證字號">
+                </div>
+                <div class="mb-3">
+                    <label for="birthday" class="form-label"><span>*</span>生日 / Birthday</label>
+                    <div class="d-flex gap-2">
+                        <select class="form-select">
+                            <option selected>年</option>
+                        </select>
+                        <select class="form-select">
+                            <option selected>月</option>
+                        </select>
+                        <select class="form-select">
+                            <option selected>日</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label"><span>*</span>信箱 / Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="請輸入信箱">
+                </div>
+                <div class="mb-3">
+                    <label for="city" class="form-label"><span>*</span>縣市 / City</label>
+                    <select id="city" class="form-select">
+                        <option selected>請選擇</option>
+                        <option value="1">台北市</option>
+                        <option value="2">桃園市</option>
+                        <option value="3">台中市</option>
+                        <option value="2">高雄市</option>
+                        <option value="2">台南市</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="district" class="form-label"><span>*</span>鄉鎮市區 / District</label>
+                    <select id="district" class="form-select">
+                        <option selected>請選擇</option>
+                        <option value="1">中區</option>
+                        <option value="2">東區</option>
+                        <option value="3">南區</option>
+                        <option value="2">西區</option>
+                        <option value="2">北區</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="roadname" class="form-label"><span>*</span>路名 / Road Name</label>
+                    <select id="roadname" class="form-select">
+                        <option selected>請選擇</option>
+                        <option value="1">中華路</option>
+                        <option value="2">三民路</option>
+                        <option value="3">中山路</option>
+                        <option value="2">大誠街</option>
+                        <option value="2">公園路</option>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                找不到路名 / 街道
+                            </label>
+                        </div>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label"><span>*</span>路,巷,弄,號 / Road,Lane,Lane,Number</label>
+                    <input type="text" id="address" class="form-control" placeholder="請選行政區後填物資寄送地址/address">
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label"><span>* 確認寄送地址/Address</span></label>
+                    <div class="viewpostage">檢視郵資/View Postage</div>
+                    <input class="form-control" type="text" placeholder="資料自動帶入" aria-label="Disabled input example"
+                        disabled>
+                    <div class="addresscheck">煩請務必確認完整地址 !</div>
+                </div>
+                <div class="box-2">
+                    <div class="box-2text-m">※ 若非現場報到的跑者，則物資寄至活動現場時，仍需收取郵資費，活動當天在現場領取物資。</div>
+                    <div class="box-2text-s">（Postage fees will still apply for race packets sent to the event venue. On
+                        the day of the event, packages can be collected at the venue. ）</div>
+                </div>
+                <div class="mb-3">
+                    <label for="mobilephone" class="form-label"><span>*</span>手機 / Mobile Phone</label>
+                    <input type="email" id="mobilephone" class="form-control" placeholder="請輸入手機">
+                </div>
+                <div class="mb-3">
+                    <label for="mobilephone" class="form-label"><span>*</span>市話 / Phone</label>
+                    <input type="email" id="mobilephone" class="form-control" placeholder="請輸入市話">
+                </div>
+                <div class="mb-3">
+                    <label for="emergencycontactname" class="form-label"><span>*</span>緊急聯絡人姓名
+                        Emergency Contact Name</label>
+                    <input type="email" id="emergencycontactname" class="form-control" placeholder="緊急聯絡人姓名">
+                </div>
+                <div class="mb-3">
+                    <label for="emergencymobilephone" class="form-label"><span>*</span>緊急聯絡人手機
+                        Emergency Mobile Phone</label>
+                    <input type="email" id="emergencymobilephone" class="form-control" placeholder="緊急聯絡人手機">
+                </div>
+                </form>
+                <div class="confirm-button">
+                    <button class="btn"
+                        style="background-color: white; color: black; border: 2px solid orangered;border-radius: 10px;font-weight: bold;">下一步/Next</button>
+                </div>
+            </div>
     </main>
     <footer>
         <div class="footer-body footer-top d-flex flex-column justify-content-between">
