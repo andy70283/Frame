@@ -338,6 +338,10 @@
             margin-bottom: 20px;
             gap: 80px;
             border: none;
+            /* width: 340px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around; */
             --bs-nav-tabs-border-color:transparent;
             --bs-nav-tabs-link-active-border-color:transparent;
             --bs-nav-tabs-link-hover-border-color:transparent;
@@ -358,6 +362,11 @@
             color:#009FE7;
         }
 
+        .big-icon {
+            width: 40px;
+            height: 40px;
+        }
+        
         .card {
             width: 340px;
             height: 292px;
@@ -479,6 +488,12 @@
         .result {
             margin-top: 20px;
             margin-bottom: 20px;
+        }
+
+        #home-tab, #profile-tab{
+        width: 20px;
+        height: 20px;
+
         }
     </style>
 </head>
@@ -630,14 +645,14 @@
         <!------------------------------------------------ 活動資訊及月曆 ------------------------------------------>
         <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
-                    type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"><img
-                        src="./homepage-img/home.jpg" alt=""></button>
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                    type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+                    <img class="big-icon" src="./homepage-img/home.jpg" alt=""></button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
-                    type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false"><img
-                        src="./homepage-img/date.jpg" alt=""></button>
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                    type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                    <img class="big-icon" src="./homepage-img/date.jpg" alt=""></button>
             </li>
         </ul>
         <!-------------------------------------------------- 活動選項 --------------------------------------------->
