@@ -329,36 +329,15 @@
             background-image: url(./logo-img/square-youtube-brands-solid.svg);
         }
 
-        main {
+        .notice-container {
             margin-top: 70px;
         }
 
-        /* body {
-            width: 375px;
-            font-family: 'Arial', sans-serif;        
-            background-color: black;
-        } */
-
         .rice-content {
-            /* height: 1856px; */
             background-color: white;
             padding: 20px;
             line-height: 2;
             font-size: 12px;
-        }
-
-        .btn-custom {
-            width: 154px;
-            height: 76px;
-            background-color: #ff6d35;
-            color: white;
-            border: none;
-            margin: 5px;
-        }
-
-        .btn-custom:hover {
-            background-color: #009FE7;
-            color: white;
         }
 
         .rice-btn {
@@ -369,8 +348,32 @@
             margin-bottom: 50px;
         }
 
-        .rice-btn span {
-            font-size: 14px;
+        .btn-final {
+            margin-top: 30px;
+            width: 153px;
+            height: 76px;
+            background-color: #FF6D35;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            box-shadow: 0px 4px 4px 0px #00000040;
+            line-height: 20px;
+            color: white;
+        }
+
+        .btn-final:hover {
+            background-color: #009fE7;
+        }
+
+        .btn-final:active {
+            opacity: 0.7;
+        }
+
+        .btn-final span {
+            font-size: 12px;
+            line-height: 12px;
+            font-weight: 400;
         }
 
         .rice-form {
@@ -378,7 +381,11 @@
             border-radius: 8px;
             padding: 10px;
             background-color: #fde6e6;
-            box-shadow: 0 4px 4px gray;
+            box-shadow: 0px 4px 4px 0px #00000040;
+        }
+
+        .rice-form span {
+            color: red;
         }
 
         .rice-content h2 {
@@ -397,7 +404,6 @@
             font-size: 12px;
             line-height: 2;
         }
-
     </style>
 </head>
 
@@ -514,7 +520,7 @@
         </div>
 
     </nav>
-    <main>
+    <main class="notice-container">
         <div class="rice-content">
             <br>
             <h2>活動注意事項與聲明</h2>
@@ -536,7 +542,7 @@
                 <li>從事體能活動是不是會使得您的骨骼或關節的問題更嚴重或惡化？</li>
                 <li>您是否因高血壓或心臟疾病而需住院？</li>
                 <li>您是否有任何不適合體能活動的原因？</li>
-    
+
             </ul>
             <br>
             <h5>注意事項</h5>
@@ -572,16 +578,16 @@
                 一旦選擇報名即同意上述聲明及隱私政策條款！
             </h6>
             <br><br>
-    
+
             <!-- Form Section -->
             <div class="rice-form">
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="rice-agreement1">
                     <label class="form-check-label" for="rice-agreement1">
-                        已詳細閱讀、瞭解並同意運動報名網《 活動規範 》及《 免責聲明 》
+                        已詳細閱讀、瞭解並同意運動報名網《 <span>活動規範</span> 》及《 <span>免責聲明</span> 》
                     </label>
                 </div>
-                
+
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="rice-agreement2">
                     <label class="form-check-label" for="rice-agreement2">
@@ -592,16 +598,8 @@
             <br><br>
             <!-- Buttons Section -->
             <div class="rice-btn">
-                <button class="btn btn-custom">
-                    個人報名
-                    <br>
-                    <span>(僅限1人)</span>
-                </button>
-                <button class="btn btn-custom">
-                    團體報名
-                    <br>
-                    <span>(含2人以上)</span>
-                </button>
+                <button type="button" class="btn-final">個人報名<br><span>(僅限1人)</span></button>
+                <button type="button" class="btn-final">團體報名<br><span>(含2人以上)</span></button>
             </div>
         </div>
     </main>

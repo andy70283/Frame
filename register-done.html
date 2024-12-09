@@ -352,7 +352,7 @@
             font-weight: 700;
             display: flex;
             flex-direction: column;
-            justify-content:center;
+            justify-content: center;
             align-items: center;
         }
 
@@ -361,6 +361,27 @@
             justify-content: end;
             margin-top: 50px;
             margin-bottom: 30px;
+        }
+
+        .btn2 {
+            font-size: 14px;
+            width: 146px;
+            height: 39px;
+            background-color: white;
+            border: 2px solid #FF6D35;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .btn2:hover {
+            color: white;
+            background-color: #FF6D35;
+        }
+
+        .btn2:active {
+            color: white;
+            background-color: #FF6D35;
+            opacity: 0.7;
         }
 
         span {
@@ -376,7 +397,7 @@
             margin-bottom: 15px;
             display: flex;
             flex-direction: column;
-            justify-content:center;
+            justify-content: center;
             align-items: center;
         }
 
@@ -458,8 +479,9 @@
             background-color: #FFE8E8;
             width: 100%;
             height: 143px;
-            padding: 15px;
+            padding: 24px;
             margin-bottom: 14px;
+            box-shadow: 0px 4px 4px 0px #00000040;
         }
 
         .box-2text-m {
@@ -722,35 +744,38 @@
                         disabled>
                     <div class="addresscheck">煩請務必確認完整地址 !</div>
                 </div>
-                <div class="box-2">
-                    <div class="box-2text-m">※ 若非現場報到的跑者，則物資寄至活動現場時，仍需收取郵資費，活動當天在現場領取物資。</div>
-                    <div class="box-2text-s">（Postage fees will still apply for race packets sent to the event venue. On
-                        the day of the event, packages can be collected at the venue. ）</div>
-                </div>
-                <div class="mb-3">
-                    <label for="mobilephone" class="form-label"><span>*</span>手機 / Mobile Phone</label>
-                    <input type="email" id="mobilephone" class="form-control" placeholder="請輸入手機">
-                </div>
-                <div class="mb-3">
-                    <label for="mobilephone" class="form-label"><span>*</span>市話 / Phone</label>
-                    <input type="email" id="mobilephone" class="form-control" placeholder="請輸入市話">
-                </div>
-                <div class="mb-3">
-                    <label for="emergencycontactname" class="form-label"><span>*</span>緊急聯絡人姓名
-                        Emergency Contact Name</label>
-                    <input type="email" id="emergencycontactname" class="form-control" placeholder="緊急聯絡人姓名">
-                </div>
-                <div class="mb-3">
-                    <label for="emergencymobilephone" class="form-label"><span>*</span>緊急聯絡人手機
-                        Emergency Mobile Phone</label>
-                    <input type="email" id="emergencymobilephone" class="form-control" placeholder="緊急聯絡人手機">
-                </div>
-                </form>
-                <div class="confirm-button">
-                    <button class="btn"
-                        style="background-color: white; color: black; border: 2px solid orangered;border-radius: 10px;font-weight: bold;">下一步/Next</button>
-                </div>
             </div>
+        </div>
+        <div class="box-2">
+            <div class="box-2text-m">※ 若非現場報到的跑者，則物資寄至活動現場時，仍需收取郵資費，活動當天在現場領取物資。</div>
+            <div class="box-2text-s">（Postage fees will still apply for race packets sent to the event venue. On
+                the day of the event, packages can be collected at the venue. ）</div>
+        </div>
+        <div class="section">
+            <div class="mb-3">
+                <label for="mobilephone" class="form-label"><span>*</span>手機 / Mobile Phone</label>
+                <input type="email" id="mobilephone" class="form-control" placeholder="請輸入手機">
+            </div>
+            <div class="mb-3">
+                <label for="mobilephone" class="form-label"><span>*</span>市話 / Phone</label>
+                <input type="email" id="mobilephone" class="form-control" placeholder="請輸入市話">
+            </div>
+            <div class="mb-3">
+                <label for="emergencycontactname" class="form-label"><span>*</span>緊急聯絡人姓名
+                    Emergency Contact Name</label>
+                <input type="email" id="emergencycontactname" class="form-control" placeholder="緊急聯絡人姓名">
+            </div>
+            <div class="mb-3">
+                <label for="emergencymobilephone" class="form-label"><span>*</span>緊急聯絡人手機
+                    Emergency Mobile Phone</label>
+                <input type="email" id="emergencymobilephone" class="form-control" placeholder="緊急聯絡人手機">
+            </div>
+            </form>
+
+            <div class="confirm-button">
+                <button type="button" class="btn2">下一步 / Next</button>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="footer-body footer-top d-flex flex-column justify-content-between">
