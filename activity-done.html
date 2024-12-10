@@ -11,6 +11,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 </head>
 <style>
     * {
@@ -58,10 +59,12 @@
     }
 
     .card-body {
+        width: 220px;
         font-size: 20px;
         font-weight: 700;
         line-height: 24px;
         padding: 10px;
+        text-align: center;
     }
 
     .card-title {
@@ -87,7 +90,7 @@
         margin-top: 30px;
         width: 153px;
         height: 76px;
-        background-color:#FF6D35;
+        background-color: #FF6D35;
         border: none;
         border-radius: 10px;
         font-size: 20px;
@@ -546,7 +549,7 @@
     <div class="card d-flex flex-column justify-content-center align-items-center">
         <div class="card-countdown d-flex flex-column justify-content-center align-items-center">
             <div class="card-top">報名截止剩餘</div>
-            <div class="card-body">20天 5時 3分 6秒</div>
+            <div class="card-body" id="time"></div>
         </div>
         <div class="card1">
             <div class="card-title">Chiikawa</div>
@@ -555,14 +558,14 @@
         <div class="card2 d-flex flex-column justify-content-between align-items-center">
             <div class="card-info">2025年1月19日(星期日)</div>
 
-            <a href="" class="card-info">台中市西屯區中央球場</a>
+            <a href="https://reurl.cc/b3G44l" class="card-info">台中市西屯區中央球場</a>
 
             <div class="card-info">0800-271-637(工作日9:00~18:00)</div>
 
             <div class="card-info">05-236-5187(手機直撥)
             </div>
         </div>
-        <button type="button" class="btn-final">我要報名<br><span>REGISTER</span></button>
+        <a href="notice-done.html"><button type="button" class="btn-final">我要報名<br><span>REGISTER</span></button></a>
     </div>
     <footer>
         <div class="footer-body footer-top d-flex flex-column justify-content-between">
@@ -599,6 +602,32 @@
             <a href="" class="social-icon social-icon-yt"></a>
         </div>
     </footer>
+    <script>
+        let currentyear = new Date().getFullYear();
+        let endtime = new Date(`January 19 ${currentyear + 1} 00:00:00`);
+        let time = document.querySelector('#time');
+
+        function gettime() {
+            let timenow = new Date();
+            let get = endtime - timenow;
+
+            let sec = Math.floor(get/1000) % 60;
+            let min = Math.floor(get/1000/60) % 60;
+            let hour = Math.floor(get/1000/60/60) % 24;
+            let day = Math.floor(get/1000/60/60/24);
+
+            time.textContent = `${day}天 ${hour}時 ${min}分 ${sec}秒`;
+        }
+
+        const timeinterval = setInterval(function () {
+            let end = endtime - (new Date());
+            if (end < 0) {
+            clearInterval(timeinterval);
+            } else {
+            gettime();
+            }
+        }, 1000);
+    </script>
 </body>
 
 </html>

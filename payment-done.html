@@ -705,7 +705,7 @@
                     </div>
                     <div class="f2">
                         <div class="text-1">繳費金額</div>
-                        <div class="text-2">$820</div>
+                        <div class="text-2" id="price">$820</div>
                     </div>
                     <div class="f3">
                         <div class="text-1">報名費</div>
@@ -721,7 +721,7 @@
                     </div>
                     <div class="f3">
                         <div class="text-1">折扣碼折抵</div>
-                        <div class="text-2">$0</div>
+                        <div class="text-2" id="Discount">$0</div>
                     </div>
                 </div>
                 <div class="title-2">
@@ -730,55 +730,55 @@
                 <div class="form-2">
                     <div class="f3">
                         <div class="text-1">姓名</div>
-                        <div class="text-2">Alisa</div>
-                    </div>
-                    <div class="f3">
-                        <div class="text-1">國籍</div>
-                        <div class="text-2">台灣人</div>
+                        <div class="text-2" id="name">Alisa</div>
                     </div>
                     <div class="f3">
                         <div class="text-1">國家</div>
-                        <div class="text-2">台灣</div>
+                        <div class="text-2" id="country">台灣</div>
                     </div>
                     <div class="f3">
                         <div class="text-1">生日</div>
-                        <div class="text-2">1997.XX.XX</div>
+                        <div class="text-2" id="birth">1997.XX.XX</div>
                     </div>
                     <div class="f3">
                         <div class="text-1">年齡</div>
-                        <div class="text-2">28</div>
+                        <div class="text-2" id="age">28</div>
                     </div>
                     <div class="f3">
                         <div class="text-1">身分證字號</div>
-                        <div class="text-2">LXXXXXXXXX</div>
+                        <div class="text-2" id="idnumber">LXXXXXXXXX</div>
                     </div>
                     <div class="f3">
                         <div class="text-1">性別</div>
-                        <div class="text-2">女</div>
+                        <div class="text-2" id="gender">女</div>
                     </div>
                     <div class="f3">
                         <div class="text-1">信箱</div>
-                        <div class="text-2">XXXXX@gmail.com</div>
+                        <div class="text-2" id="email">XXXXX@gmail.com</div>
                     </div>
                     <div class="f3">
                         <div class="text-1">地址</div>
-                        <div class="text-2">台中市西屯區文華路100號</div>
+                        <div class="text-2" id="address">台中市西屯區文華路100號</div>
                     </div>
                     <div class="f3">
                         <div class="text-1">寄送地址</div>
-                        <div class="text-2">台中市西屯區文華路100號</div>
+                        <div class="text-2" id="sendaddress">台中市西屯區文華路100號</div>
                     </div>
                     <div class="f3">
                         <div class="text-1">手機</div>
-                        <div class="text-2">09XXXXXXXX</div>
+                        <div class="text-2" id="mobilephone">09XXXXXXXX</div>
                     </div>
                     <div class="f3">
                         <div class="text-1">市話</div>
-                        <div class="text-2">04-23XXXXXX</div>
+                        <div class="text-2" id="phone">04-23XXXXXX</div>
                     </div>
                     <div class="f3">
                         <div class="text-1">緊急聯絡人</div>
-                        <div class="text-2">何小珍</br>09XXXXXXXX</div>
+                        <div class="text-2" id="emergencycontactname">何小珍</div>
+                    </div>
+                    <div class="f3">
+                        <div class="text-1">緊急聯絡人</div>
+                        <div class="text-2" id="emergencymobilephone"></div>
                     </div>
                 </div>
                 <div class="remind">
@@ -786,8 +786,8 @@
                 </div>
             </div>
             <div class="confirm-button">
-                <button class="btn1">上一步 / Previous</button>
-                <button class="btn2">確認報名 / Confirm</button>
+                <a href="cart-done.html"><button class="btn1">上一步 / Previous</button></a>
+                <a href="homepage-done.html"><button class="btn2">確認報名 / Confirm</button></a>
             </div>
     
         </div>
@@ -827,6 +827,51 @@
             <a href="" class="social-icon social-icon-yt"></a>
         </div>
     </footer>
+    <script>
+        let formData = JSON.parse(localStorage.getItem('formData'));
+        let cartData = JSON.parse(localStorage.getItem('cartData'));
+        let name = formData.name;
+        let country = formData.country;
+        let bitrhyear = formData.birthyear;
+        let bitrhmonth = formData.birthmonth;
+        let bitrhdate = formData.birthdate;
+        let age = 2024 - bitrhyear;
+        let idnumber = formData.idnumber
+        let gender = formData.gender
+        let email = formData.email
+        let city = formData.city
+        let district = formData.district
+        let roadname = formData.roadname
+        let address = formData.address
+        let mobilephone = formData.mobilephone
+        let phone = formData.phone
+        let emergencycontactname = formData.emergencycontactname
+        let emergencymobilephone = formData.emergencymobilephone
+        let formGroupExampleInput = cartData.formGroupExampleInput
+
+        
+        document.getElementById('name').innerText = name;
+        document.getElementById('country').innerText = country;
+        document.getElementById('birth').innerText = bitrhyear + '.' + bitrhmonth + '.' + bitrhdate;
+        document.getElementById('age').innerText = age;
+        document.getElementById('idnumber').innerText = idnumber;
+        document.getElementById('gender').innerText = gender;
+        document.getElementById('email').innerText = email;
+        document.getElementById('address').innerText = city + district + roadname + address + '號';
+        document.getElementById('sendaddress').innerText = city + district + roadname + address + '號';
+        document.getElementById('mobilephone').innerText = mobilephone;
+        document.getElementById('phone').innerText = phone;
+        document.getElementById('emergencycontactname').innerText = emergencycontactname;
+        document.getElementById('emergencymobilephone').innerText = emergencymobilephone;
+
+        if (formGroupExampleInput == "") {
+            document.getElementById('price').innerText = '$820';
+            document.getElementById('Discount').innerText = '$0';
+        } else {
+            document.getElementById('price').innerText = '$690';
+            document.getElementById('Discount').innerText = '$130';
+        }
+    </script>
 </body>
 
 </html>

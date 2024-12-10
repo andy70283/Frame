@@ -9,6 +9,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+    <script src="https://demeter.5fpro.com/tw/zipcode-selector.js"></script>
+
 
     <style>
         * {
@@ -493,6 +497,16 @@
             font-size: 11px;
             /* margin-top: 5px; */
         }
+        .warning {
+            color: red;
+            position: absolute;
+            font-size: 14px;
+        }
+        .warning1 {
+            color: red;
+            position: absolute;
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -641,103 +655,158 @@
                 </div>
             </div>
             <div class="form">
-                <div class="mb-3">
-                    <label for="nationality" class="form-label"><span>*</span>國籍 / Nationality</label>
-                    <select id="nationality" class="form-select">
-                        <option selected>請選擇</option>
-                        <option value="1">台灣人</option>
-                        <option value="2">外國人</option>
-                    </select>
-                </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="nationality" class="form-label"><span>*</span>國家 / Country</label>
-                    <select id="nationality" class="form-select">
-                        <option selected>請選擇</option>
-                        <option value="1">JAPAN</option>
-                        <option value="2">UK</option>
-                        <option value="3">China</option>
-                        <option value="2">USA</option>
-                        <option value="2">ITALY</option>
+                    <select id="country" class="input-check form-select">
+                        <option value="" selected disabled>請選擇</option>
+                        <option value="Taiwan">Taiwan</option>
+                        <option value="JAPAN">JAPAN</option>
+                        <option value="UK">UK</option>
+                        <option value="China">China</option>
+                        <option value="USA">USA</option>
+                        <option value="ITALY">ITALY</option>
+                        <option value="KOREA">Korea</option>
                     </select>
+                    <span class="warning"></span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="name" class="form-label"><span>*</span>姓名 / Name</label>
-                    <input type="text" id="name" class="form-control" placeholder="請輸入姓名">
+                    <input type="text" id="name" class="input-check form-control" placeholder="請輸入姓名">
+                    <span class="warning"></span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="gender" class="form-label"><span>*</span>性別 / Gender</label>
-                    <select id="gender" class="form-select">
-                        <option selected>請選擇</option>
-                        <option value="1">男</option>
-                        <option value="2">女</option>
+                    <select id="gender" class="input-check form-select">
+                        <option value="" selected disabled>請選擇</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
                     </select>
+                    <span class="warning"></span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="idnumber" class="form-label"><span>*</span>身分證字號 / ID Number</label>
-                    <input type="text" id="idnumber" class="form-control" placeholder="身分證字號">
+                    <input type="text" id="idnumber" class="input-check form-control" placeholder="身分證字號">
+                    <span class="warning"></span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="birthday" class="form-label"><span>*</span>生日 / Birthday</label>
                     <div class="d-flex gap-2">
-                        <select class="form-select">
-                            <option selected>年</option>
+                        <select class="form-select" id="birthyear">
+                            <option value="" selected disabled>年</option>
+                            <option value="1990">1990</option>
+                            <option value="1991">1991</option>
+                            <option value="1992">1992</option>
+                            <option value="1993">1993</option>
+                            <option value="1994">1994</option>
+                            <option value="1995">1995</option>
+                            <option value="1996">1996</option>
+                            <option value="1997">1997</option>
+                            <option value="1998">1998</option>
+                            <option value="1999">1999</option>
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
                         </select>
-                        <select class="form-select">
-                            <option selected>月</option>
+                        <select class="form-select" id="birthmonth">
+                            <option value="" selected disabled>月</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
                         </select>
-                        <select class="form-select">
-                            <option selected>日</option>
+                        <select class="form-select" id="birthdate">
+                            <option value="" selected disabled>日</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
                         </select>
                     </div>
+                    <span class="warning1"></span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="email" class="form-label"><span>*</span>信箱 / Email</label>
-                    <input type="email" id="email" class="form-control" placeholder="請輸入信箱">
+                    <input type="email" id="email" class="input-check form-control" placeholder="請輸入信箱">
+                    <span class="warning"></span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="city" class="form-label"><span>*</span>縣市 / City</label>
-                    <select id="city" class="form-select">
-                        <option selected>請選擇</option>
-                        <option value="1">台北市</option>
-                        <option value="2">桃園市</option>
-                        <option value="3">台中市</option>
-                        <option value="2">高雄市</option>
-                        <option value="2">台南市</option>
+                    <select id="city" class="input-check form-select">
+                        <option value="" selected disabled>請選擇</option>
+                        <option value="台北市">台北市</option>
+                        <option value="新北市">新北市</option>
+                        <option value="桃園市">桃園市</option>
+                        <option value="台中市">台中市</option>
+                        <option value="高雄市">高雄市</option>
+                        <option value="台南市">台南市</option>
                     </select>
+                    <span class="warning"></span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="district" class="form-label"><span>*</span>鄉鎮市區 / District</label>
-                    <select id="district" class="form-select">
-                        <option selected>請選擇</option>
-                        <option value="1">中區</option>
-                        <option value="2">東區</option>
-                        <option value="3">南區</option>
-                        <option value="2">西區</option>
-                        <option value="2">北區</option>
+                    <select id="district" class="input-check form-select">
+                        <option value="" selected disabled>請選擇</option>
+                        <option value="中區">中區</option>
+                        <option value="東區">東區</option>
+                        <option value="南區">南區</option>
+                        <option value="西區">西區</option>
+                        <option value="北區">北區</option>
                     </select>
+                    <span class="warning"></span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="roadname" class="form-label"><span>*</span>路名 / Road Name</label>
-                    <select id="roadname" class="form-select">
-                        <option selected>請選擇</option>
-                        <option value="1">中華路</option>
-                        <option value="2">三民路</option>
-                        <option value="3">中山路</option>
-                        <option value="2">大誠街</option>
-                        <option value="2">公園路</option>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                找不到路名 / 街道
-                            </label>
-                        </div>
+                    <select id="roadname" class="input-check form-select">
+                        <option value="" selected disabled>請選擇</option>
+                        <option value="中華路">中華路</option>
+                        <option value="三民路">三民路</option>
+                        <option value="中山路">中山路</option>
+                        <option value="大誠街">大誠街</option>
+                        <option value="公園路">公園路</option>
                     </select>
+                    <span class="warning"></span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="address" class="form-label"><span>*</span>路,巷,弄,號 / Road,Lane,Lane,Number</label>
-                    <input type="text" id="address" class="form-control" placeholder="請選行政區後填物資寄送地址/address">
+                    <input type="text" id="address" class="input-check form-control" placeholder="請選行政區後填物資寄送地址/address">
+                    <span class="warning"></span>
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="address" class="form-label"><span>* 確認寄送地址/Address</span></label>
                     <div class="viewpostage">檢視郵資/View Postage</div>
                     <input class="form-control" type="text" placeholder="資料自動帶入" aria-label="Disabled input example"
@@ -752,26 +821,29 @@
                 the day of the event, packages can be collected at the venue. ）</div>
         </div>
         <div class="section">
-            <div class="mb-3">
+            <div class="mb-4">
                 <label for="mobilephone" class="form-label"><span>*</span>手機 / Mobile Phone</label>
-                <input type="email" id="mobilephone" class="form-control" placeholder="請輸入手機">
+                <input type="text" id="mobilephone" class="input-check form-control" placeholder="請輸入手機">
+                <span class="warning"></span>
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
                 <label for="mobilephone" class="form-label"><span>*</span>市話 / Phone</label>
-                <input type="email" id="mobilephone" class="form-control" placeholder="請輸入市話">
+                <input type="text" id="phone" class="input-check form-control" placeholder="請輸入市話">
+                <span class="warning"></span>
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
                 <label for="emergencycontactname" class="form-label"><span>*</span>緊急聯絡人姓名
                     Emergency Contact Name</label>
-                <input type="email" id="emergencycontactname" class="form-control" placeholder="緊急聯絡人姓名">
+                <input type="text" id="emergencycontactname" class="input-check form-control" placeholder="緊急聯絡人姓名">
+                <span class="warning"></span>
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
                 <label for="emergencymobilephone" class="form-label"><span>*</span>緊急聯絡人手機
                     Emergency Mobile Phone</label>
-                <input type="email" id="emergencymobilephone" class="form-control" placeholder="緊急聯絡人手機">
+                <input type="text" id="emergencymobilephone" class="input-check form-control" placeholder="緊急聯絡人手機">
+                <span class="warning"></span>
             </div>
             </form>
-
             <div class="confirm-button">
                 <button type="button" class="btn2">下一步 / Next</button>
             </div>
@@ -812,6 +884,141 @@
             <a href="" class="social-icon social-icon-yt"></a>
         </div>
     </footer>
+    <script>
+        let btn = document.querySelector('.btn2');
+        let birthdate = document.querySelector('#birthdate');
+        let birthmonth = document.querySelector('#birthmonth');
+        let birthyear = document.querySelector('#birthyear');
+        let warning1 = document.querySelector('.warning1');
+        let road = document.querySelector('#road');
+        let flexCheckDefault = document.querySelector('#flexCheckDefault');
+        let warning2 = document.querySelector('.warning2');
+        let country = document.querySelector('#country');
+        let name = document.querySelector('#name');
+        let gender = document.querySelector('#gender');
+        let idnumber = document.querySelector('#idnumber');
+        let birth = document.querySelectorAll('.birth');
+        let email = document.querySelector('#email');
+        let city = document.querySelector('#city');
+        let district = document.querySelector('#district');
+        let roadname = document.querySelector('#roadname');
+        let address = document.querySelector('#address');
+        let mobilephone = document.querySelector('#mobilephone');
+        let phone = document.querySelector('#phone');
+        let emergencycontactname = document.querySelector('#emergencycontactname');
+        let emergencymobilephone = document.querySelector('#emergencymobilephone');
+        let inputcheck = document.querySelectorAll('.input-check');
+        let reg = /^[A-Z]{1}[1-2]{1}[0-9]{8}$/;
+        let reg1 = /^[0]{1}[9]{1}[0-9]{8}$/;
+    
+        btn.addEventListener('click', function() {
+            let isValid = true;
+            inputcheck.forEach(item => {
+                if (!item.value) {
+                    let warning = item.parentNode.children[2];
+                    warning.textContent = '請填寫完整';
+                    swal(
+                    '錯誤!',
+                    '請填寫完整!',
+                    'error'
+                    );
+                    isValid = false;
+                }
+                return;
+            });
+    
+            if (!birthdate.value || !birthmonth.value || !birthyear.value) {
+                warning1.textContent = '請填寫完整';
+                swal(
+                    '錯誤!',
+                    '請填寫完整!',
+                    'error'
+                );
+                isValid = false;
+                return;
+            }
+
+
+            if(reg.test(idnumber.value) === false) {
+                let warning = idnumber.parentNode.children[2];
+                swal(
+                    '錯誤!',
+                    '身分證請填寫正確!',
+                    'error'
+                );
+                return;
+            }
+
+            if(reg1.test(mobilephone.value) === false) {
+                let warning = mobilephone.parentNode.children[2];
+                swal(
+                    '錯誤!',
+                    '手機請填寫正確!',
+                    'error'
+                );
+                return;
+            }
+    
+            if (isValid) {
+                let formData = {
+                    country: country.value,
+                    name: name.value,
+                    gender: gender.value,
+                    idnumber: idnumber.value,
+                    birthyear: birthyear.value,
+                    birthmonth: birthmonth.value,
+                    birthdate: birthdate.value,
+                    email: email.value,
+                    city: city.value,
+                    district: district.value,
+                    roadname: roadname.value,
+                    address: address.value,
+                    mobilephone: mobilephone.value,
+                    phone: phone.value,
+                    emergencycontactname: emergencycontactname.value,
+                    emergencymobilephone: emergencymobilephone.value
+                };
+                localStorage.setItem('formData', JSON.stringify(formData));
+                window.location.href = 'cart-done.html';
+            } else {
+                swal(
+                    '錯誤!',
+                    '請填寫完整!',
+                    'error'
+                );
+            }
+        });
+    
+        function res() {
+            inputcheck.forEach(item => {
+                if (item.value) {
+                    let warning = item.parentNode.querySelector('.warning');
+                    warning.textContent = '';
+                }
+            });
+    
+            if (birthdate.value && birthmonth.value && birthyear.value) {
+                warning1.textContent = '';
+            }
+        }
+    
+        country.addEventListener('change', res);
+        name.addEventListener('input', res);
+        gender.addEventListener('change', res);
+        idnumber.addEventListener('input', res);
+        birth.forEach(item => {
+            item.addEventListener('change', res);
+        });
+        email.addEventListener('input', res);
+        city.addEventListener('change', res);
+        district.addEventListener('change', res);
+        roadname.addEventListener('change', res);
+        address.addEventListener('input', res);
+        mobilephone.addEventListener('input', res);
+        phone.addEventListener('input', res);
+        emergencycontactname.addEventListener('input', res);
+        emergencymobilephone.addEventListener('input', res);
+    </script>        
 </body>
 
 </html>

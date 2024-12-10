@@ -342,31 +342,31 @@
             display: flex;
             flex-direction: row;
             justify-content: space-around; */
-            --bs-nav-tabs-border-color:transparent;
-            --bs-nav-tabs-link-active-border-color:transparent;
-            --bs-nav-tabs-link-hover-border-color:transparent;
+            --bs-nav-tabs-border-color: transparent;
+            --bs-nav-tabs-link-active-border-color: transparent;
+            --bs-nav-tabs-link-hover-border-color: transparent;
         }
 
         .nav-pills .nav-link {
             color: #3b3b3b;
-            background-color:#ececec;
+            background-color: #ececec;
         }
 
         .nav-pills {
             gap: 10px;
             font-size: 12px;
-            --bs-nav-pills-link-active-bg:#FF6D35;
+            --bs-nav-pills-link-active-bg: #FF6D35;
         }
 
         .nav-link:hover {
-            color:#009FE7;
+            color: #009FE7;
         }
 
         .big-icon {
             width: 40px;
             height: 40px;
         }
-        
+
         .card {
             width: 340px;
             height: 292px;
@@ -416,7 +416,7 @@
 
         .calender .month {
             padding: 10px 0px 5px;
-            color:#3b3b3b;
+            color: #3b3b3b;
             width: 100%;
             position: relative;
         }
@@ -490,9 +490,10 @@
             margin-bottom: 20px;
         }
 
-        #home-tab, #profile-tab{
-        width: 20px;
-        height: 20px;
+        #home-tab,
+        #profile-tab {
+            width: 20px;
+            height: 20px;
 
         }
     </style>
@@ -644,14 +645,14 @@
         </div>
         <!------------------------------------------------ 活動資訊及月曆 ------------------------------------------>
         <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
-                    type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+            <li class="nav-item" role="presentation" id="hometab">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button"
+                    role="tab" aria-controls="home-tab-pane" aria-selected="true">
                     <img class="big-icon" src="./homepage-img/home.jpg" alt=""></button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
-                    type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button"
+                    role="tab" aria-controls="profile-tab-pane" aria-selected="false">
                     <img class="big-icon" src="./homepage-img/date.jpg" alt=""></button>
             </li>
         </ul>
@@ -680,86 +681,104 @@
                     <!------------------------------------------ IP活動卡片  -------------------------------------------------->
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                         aria-labelledby="pills-home-tab" tabindex="0">
-                        <a href="./activity-done.html"><div class="card shadow">
-                            <img src="./homepage-img/card1-1.png" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <span class="badge">報名中</span>
-                                <div class="fs-4">CHIIKAWA路跑</div>
-                                <div class="fs-6">活動簡介...</div>
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card1-1.png" class="card-img-top" alt="">
+                                <div class="card-body">
+                                    <span class="badge">報名中</span>
+                                    <div class="fs-4">CHIIKAWA路跑</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
                             </div>
-                        </div></a>
-                        <a href="./activity-done.html"><div class="card shadow">
-                            <img src="./homepage-img/card1-2.png" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <span class="badge">報名中</span>
-                                <div class="fs-4">史酷比路跑</div>
-                                <div class="fs-6">活動簡介...</div>
+                        </a>
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card1-2.png" class="card-img-top" alt="">
+                                <div class="card-body">
+                                    <span class="badge">報名中</span>
+                                    <div class="fs-4">史酷比路跑</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
                             </div>
-                        </div></a>
-                        <a href="./activity-done.html"><div class="card shadow">
-                            <img src="./homepage-img/card1-3.png" class="card-img-top" alt="">
-                            <div class="card-body">
+                        </a>
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card1-3.png" class="card-img-top" alt="">
+                                <div class="card-body">
                                     <span class="badge">報名截止</span>
-                                <div class="fs-4">OVERWATCH路跑</div>
-                                <div class="fs-6">活動簡介...</div>
+                                    <div class="fs-4">OVERWATCH路跑</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
                             </div>
-                        </div></a>
+                        </a>
                     </div>
                     <!------------------------------------------ 親子活動卡片  -------------------------------------------------->
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
                         tabindex="0">
-                        <a href="./activity-done.html"><div class="card shadow">
-                            <img src="./homepage-img/card2-1.png" class="card-img-top" alt="">
-                            <div class="card-body">
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card2-1.png" class="card-img-top" alt="">
+                                <div class="card-body">
                                     <span class="badge">報名中</span>
-                                <div class="fs-4">汪汪隊親子路跑</div>
-                                <div class="fs-6">活動簡介...</div>
+                                    <div class="fs-4">汪汪隊親子路跑</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
                             </div>
-                        </div></a>
-                        <a href="./activity-done.html"><div class="card shadow">
-                            <img src="./homepage-img/card2-2.png" class="card-img-top" alt="">
-                            <div class="card-body">
+                        </a>
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card2-2.png" class="card-img-top" alt="">
+                                <div class="card-body">
                                     <span class="badge">報名中</span>
-                                <div class="fs-4">全國親子路跑</div>
-                                <div class="fs-6">活動簡介...</div>
+                                    <div class="fs-4">全國親子路跑</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
                             </div>
-                        </div></a>
-                        <a href="./activity-done.html"><div class="card shadow">
-                            <img src="./homepage-img/card2-3.png" class="card-img-top" alt="">
-                            <div class="card-body">
+                        </a>
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card2-3.png" class="card-img-top" alt="">
+                                <div class="card-body">
                                     <span class="badge">報名截止</span>
-                                <div class="fs-4">台中親子公益路跑</div>
-                                <div class="fs-6">活動簡介...</div>
+                                    <div class="fs-4">台中親子公益路跑</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
                             </div>
-                        </div></a>
+                        </a>
                     </div>
                     <!------------------------------------------ 一般賽事卡片  -------------------------------------------------->
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
                         tabindex="0">
-                        <a href="./activity-done.html"><div class="card shadow">
-                            <img src="./homepage-img/card3-1.png" class="card-img-top" alt="">
-                            <div class="card-body">
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card3-1.png" class="card-img-top" alt="">
+                                <div class="card-body">
                                     <span class="badge">報名中</span>
-                                <div class="fs-4">長榮世界路跑</div>
-                                <div class="fs-6">活動簡介...</div>
+                                    <div class="fs-4">長榮世界路跑</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
                             </div>
-                        </div></a>
-                        <a href="./activity-done.html"><div class="card shadow">
-                            <img src="./homepage-img/card3-2.png" class="card-img-top" alt="">
-                            <div class="card-body">
+                        </a>
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card3-2.png" class="card-img-top" alt="">
+                                <div class="card-body">
                                     <span class="badge">報名中</span>
-                                <div class="fs-4">台中國道馬拉松</div>
-                                <div class="fs-6">活動簡介...</div>
+                                    <div class="fs-4">台中國道馬拉松</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
                             </div>
-                        </div></a>
-                        <a href="./activity-done.html"><div class="card shadow">
-                            <img src="./homepage-img/card3-3.png" class="card-img-top" alt="">
-                            <div class="card-body">
+                        </a>
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card3-3.png" class="card-img-top" alt="">
+                                <div class="card-body">
                                     <span class="badge">報名截止</span>
-                                <div class="fs-4">台南市區路跑</div>
-                                <div class="fs-6">活動簡介...</div>
+                                    <div class="fs-4">台南市區路跑</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
                             </div>
-                        </div></a>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -836,7 +855,6 @@
             next = calender.querySelector(".next"),
 
 
-            // date variables
             years = new Date().getFullYear(),
             monthes = new Date(new Date().setFullYear(years)).getMonth(),
             lastDayOfMonth = new Date(new Date(new Date().setMonth(monthes + 1)).setDate(0)).getDate(),
@@ -902,14 +920,28 @@
                 for (i = 1; i <= lastDayOfMonth; i++) {
                     if (i !== answer) {
                         let choice0 = dayItems.children[i]
+                        console.log(choice0)
                         choice0.addEventListener('click', () => {
-                            result.innerHTML = `<div class="card1" style="width: 20rem;">
-                      <div class="card-body">
-                      <h4 class="card-title" style="color: #ff6D35">${choice0.textContent}號</h4>
-                      <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
-                      <p class="card-text1">暫無活動資訊</p>
-                      </div>
-                      </div>`
+                            if (choice0.textContent == 'Today') {
+                                result.innerHTML = 
+                                `<div class="card1" style="width: 20rem;">
+                                <div class="card-body">
+                                <h4 class="card-title" style="color: #ff6D35">${choice0.textContent}</h4>
+                                <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+                                <p class="card-text1">暫無活動資訊</p>
+                                </div>
+                                </div>`;
+                            }
+                            else{
+                            result.innerHTML = 
+                                `<div class="card1" style="width: 20rem;">
+                                <div class="card-body">
+                                <h4 class="card-title" style="color: #ff6D35">${choice0.textContent}號</h4>
+                                <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+                                <p class="card-text1">暫無活動資訊</p>
+                                </div>
+                                </div>`;
+                            }
                         });
                     }
                 }

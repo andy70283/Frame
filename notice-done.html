@@ -376,6 +376,11 @@
             font-weight: 400;
         }
 
+        .btn-final:disabled{
+            background-color: #ececec;
+            color: #3b3b3b;
+        }
+
         .rice-form {
             height: 98px;
             border-radius: 8px;
@@ -598,8 +603,8 @@
             <br><br>
             <!-- Buttons Section -->
             <div class="rice-btn">
-                <button type="button" class="btn-final">個人報名<br><span>(僅限1人)</span></button>
-                <button type="button" class="btn-final">團體報名<br><span>(含2人以上)</span></button>
+                <button type="button" class="btn-final" id="btn1" disabled>個人報名<br><span>(僅限1人)</span></button>
+                <button type="button" class="btn-final" id="btn2" disabled>團體報名<br><span>(含2人以上)</span></button>
             </div>
         </div>
     </main>
@@ -638,6 +643,37 @@
             <a href="" class="social-icon social-icon-yt"></a>
         </div>
     </footer>
+
+    <script>
+        let check1 = document.querySelector('#rice-agreement1');
+        let check2 = document.querySelector('#rice-agreement2');
+        let btn1 = document.querySelector('#btn1');
+        let btn2 = document.querySelector('#btn2');
+        function check() {
+            if (check1.checked == true && check2.checked == true) {
+                btn1.disabled = false;
+                btn2.disabled = false;
+            } else {
+                btn1.disabled = true;
+                btn2.disabled = true;
+            }
+        }
+        check1.addEventListener('click', check);
+        check2.addEventListener('click', check);
+        btn1.addEventListener('click', function () {
+            location.href = 'register-done.html';
+            check1.checked = false;
+            check2.checked = false;
+        });
+        btn2.addEventListener('click', function () {
+            location.href = 'register-done.html';
+            check1.checked = false;
+            check2.checked = false;
+        });
+    
+        
+    </script>
+    
 </body>
 
 </html>
