@@ -43,7 +43,7 @@ footer ul li {
     width: 19px;
     height: 19px;
     color: #3b3b3b;
-    background-image: url('/logo-img/bars-solid.svg');
+    background-image: url('../logo-img/bars-solid.svg');
     background-size: cover;
     cursor: pointer;
 }
@@ -56,7 +56,7 @@ footer ul li {
 .running-logo {
     width: 91px;
     height: 50px;
-    background-image: url('/logo-img/Running-Man-LOGO1.png');
+    background-image: url('../logo-img/Running-Man-LOGO1.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -89,7 +89,7 @@ footer ul li {
 }
 
 .bars-icon-inner {
-    background-image: url('/logo-img/bars-solid-og.svg');
+    background-image: url('../logo-img/bars-solid-og.svg');
     width: 19px;
     height: 19px;
     background-position: center;
@@ -137,29 +137,29 @@ footer ul li {
 .list-icon {
     width: 16px;
     height: 16px;
-    background-image: url('/logo-img/message-solid.svg');
+    background-image: url('../logo-img/message-solid.svg');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .list-icon-news {
-    background-image: url('/logo-img/message-solid.svg');
+    background-image: url('../logo-img/message-solid.svg');
 }
 
 .list-icon-allgames {
-    background-image: url('/logo-img/trophy-solid.svg');
+    background-image: url('../logo-img/trophy-solid.svg');
 }
 
 .list-icon-helpcenter {
-    background-image: url('/logo-img/user-regular.svg');
+    background-image: url('../logo-img/user-regular.svg');
 }
 
 .list-icon-che-right {
-    background-image: url('/logo-img/chevron-right-solid.svg');
+    background-image: url('../logo-img/chevron-right-solid.svg');
 }
 
 .list-icon-che-down {
-    background-image: url('/logo-img/chevron-down-solid.svg');
+    background-image: url('../logo-img/chevron-down-solid.svg');
 }
 
 .accordion-item {
@@ -193,27 +193,27 @@ footer ul li {
 }
 
 .btn-news:focus .list-icon-news {
-    background-image: url('/logo-img/message-solid-wh.svg');
+    background-image: url('../logo-img/message-solid-wh.svg');
 }
 
 .btn-news:focus .list-icon-che-right {
-    background-image: url('/logo-img/chevron-right-solid-wh.svg');
+    background-image: url('../logo-img/chevron-right-solid-wh.svg');
 }
 
 .btn-helpcenter:focus .list-icon-helpcenter {
-    background-image: url('/logo-img/user-regular-wh.svg');
+    background-image: url('../logo-img/user-regular-wh.svg');
 }
 
 .btn-helpcenter:focus .list-icon-che-down {
-    background-image: url('/logo-img/chevron-up-solid.svg');
+    background-image: url('../logo-img/chevron-up-solid.svg');
 }
 
 .btn-allgames:focus .list-icon-allgames {
-    background-image: url('/logo-img/trophy-solid-wh.svg');
+    background-image: url('../logo-img/trophy-solid-wh.svg');
 }
 
 .btn-allgames:focus .list-icon-che-down {
-    background-image: url('/logo-img/chevron-up-solid.svg');
+    background-image: url('../logo-img/chevron-up-solid.svg');
 }
 
 .accordion-button::after {
@@ -302,19 +302,19 @@ footer {
 }
 
 .social-icon-line {
-    background-image: url('/logo-img/line-brands-solid.svg');
+    background-image: url('../logo-img/line-brands-solid.svg');
 }
 
 .social-icon-ig {
-    background-image: url('/logo-img/square-instagram-brands-solid.svg');
+    background-image: url('../logo-img/square-instagram-brands-solid.svg');
 }
 
 .social-icon-fb {
-    background-image: url('/logo-img/square-facebook-brands-solid.svg');
+    background-image: url('../logo-img/square-facebook-brands-solid.svg');
 }
 
 .social-icon-yt {
-    background-image: url('/logo-img/square-youtube-brands-solid.svg');
+    background-image: url('../logo-img/square-youtube-brands-solid.svg');
 }
 
 main {
