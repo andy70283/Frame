@@ -2,13 +2,14 @@
     box-sizing: border-box;
 }
 
+body {
+    width: 100%;
+}
+
 a {
     text-decoration: none;
 }
 
-nav {
-    position: fixed;
-}
 
 footer ul {
     padding: 0;
@@ -318,5 +319,4 @@ footer {
 
 main {
     margin-top: 70px;
-    height: 1000px;
 }
