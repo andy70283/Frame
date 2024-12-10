@@ -11,425 +11,425 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
+        .bannar-img {
+            margin-top: 70px;
+            width: 100%;
+            height: 246px;
+            background-position: center;
+        }
+
+        .img-fluid {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .line {
+            width: 50%;
+            height: 2px;
+            background-color: rgb(255, 109, 53);
+            margin: 0 auto;
+        }
+
+        .card {
+            /* width: 273px; */
+            height: 432px;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .card-countdown {
+            width: 205px;
+            height: 88px;
+            border-bottom: 3px solid #FF6035;
+            padding: 20px 0px;
+        }
+
+        .card-top {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 19px;
+        }
+
+        .card-body {
+            width: 220px;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 24px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 29px;
+            margin: 0;
+        }
+
+        .card1 {
+            margin-top: 30px;
+        }
+
+        .card2 {
+            margin-top: 30px;
+            font-size: 13px;
+            width: 273px;
+            height: 88px;
+            line-height: 16px;
+        }
+
+        .btn-final {
+            margin-top: 30px;
+            width: 153px;
+            height: 76px;
+            background-color: #FF6D35;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            box-shadow: 0px 4px 4px 0px #00000040;
+            line-height: 20px;
+            color: white;
+        }
+
+        .btn-final:hover {
+            background-color: #009fE7;
+        }
+
+        .btn-final:active {
+            opacity: 0.7;
+        }
+
+        .btn-final span {
+            font-size: 12px;
+            line-height: 12px;
+            font-weight: 400;
+        }
+
+        /* nav-footer-style */
+
+        a {
+            text-decoration: none;
+            color: #009fE7
+        }
+
+        footer ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            color: #3b3b3b;
+        }
+
+        footer ul li a {
+            font-size: 12px;
+            font-weight: 700;
+            color: #3b3b3b;
+        }
+
+        footer ul li {
+            line-height: 14.52px;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 70px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #FF6D35;
+            padding: 10px 33px;
+            z-index: 8;
+        }
+
+        .bars-icon {
+            width: 19px;
+            height: 19px;
+            color: #3b3b3b;
+            background-image: url(./logo-img/bars-solid.svg);
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        .container {
+            padding: 0;
+            margin: 0;
+        }
+
+        .running-logo {
+            width: 91px;
+            height: 50px;
+            background-image: url(./logo-img/Running-Man-LOGO1.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transform: translate(-50%, 0);
+        }
+
+        .ham-list {
+            width: 176px;
+            display: none;
+            border-radius: 12px;
+            background-color: white;
+            z-index: 9;
+        }
+
+        #ham-switch-menu:checked~.ham-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #ham-switch-menu:not(:checked)~.ham-list {
+            display: none;
+        }
+
+        .list-top {
+            width: 100%;
+            height: 70px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            padding: 27px 17px 24px 33px;
+        }
+
+        .bars-icon-inner {
+            background-image: url(./logo-img/bars-solid-og.svg);
+            width: 19px;
+            height: 19px;
+            background-position: center;
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        .search {
+            height: 44px;
+        }
+
+        .custom-search {
+            border: 2px solid #333;
+            border-radius: 25px;
+            padding: 5px 15px;
+            width: 151px;
+            height: 28px;
+            background-color: white;
+        }
+
+        .custom-search input {
+            width: 95px;
+            height: 24px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .custom-search input::placeholder {
+            color: #3b3b3b;
+        }
+
+        .custom-search button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .custom-search button i {
+            font-size: 14px;
+            color: #FF6D35;
+        }
+
+        .list-icon {
+            width: 16px;
+            height: 16px;
+            background-image: url(./logo-img/message-solid.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .list-icon-news {
+            background-image: url(./logo-img/message-solid.svg);
+        }
+
+        .list-icon-allgames {
+            background-image: url(./logo-img/trophy-solid.svg);
+        }
+
+        .list-icon-helpcenter {
+            background-image: url(./logo-img/user-regular.svg);
+        }
+
+        .list-icon-che-right {
+            background-image: url(./logo-img/chevron-right-solid.svg);
+        }
+
+        .list-icon-che-down {
+            background-image: url(./logo-img/chevron-down-solid.svg);
+        }
+
+        .accordion-item {
+            width: 176px;
+            color: #3b3b3b;
+            border: none;
+        }
+
+        .accordion-button {
+            height: 40px;
+            padding: 0px 10px 0px 13px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            color: #3b3b3b;
+            background-color: white;
+            border-radius: 0;
+        }
+
+
+        .accordion-item:first-of-type .accordion-button,
+        .accordion-item:last-of-type .accordion-button.collapsed {
+            border-radius: 0;
+        }
+
+        .accordion-button:focus,
+        .accordion-button:not(.collapsed) {
+            box-shadow: none;
+            background-color: #009FE7;
+            color: white;
+        }
+
+        .btn-news:focus .list-icon-news {
+            background-image: url(./logo-img/message-solid-wh.svg);
+        }
+
+        .btn-news:focus .list-icon-che-right {
+            background-image: url(./logo-img/chevron-right-solid-wh.svg);
+        }
+
+        .btn-helpcenter:focus .list-icon-helpcenter {
+            background-image: url(./logo-img/user-regular-wh.svg);
+        }
+
+        .btn-helpcenter:focus .list-icon-che-down {
+            background-image: url(./logo-img/chevron-up-solid.svg);
+        }
+
+        .btn-allgames:focus .list-icon-allgames {
+            background-image: url(./logo-img/trophy-solid-wh.svg);
+        }
+
+        .btn-allgames:focus .list-icon-che-down {
+            background-image: url(./logo-img/chevron-up-solid.svg);
+        }
+
+        .accordion-button::after {
+            display: none;
+        }
+
+        .collapse::after {
+            width: auto;
+            height: auto;
+        }
+
+        .accordion-body {
+            height: 42px;
+            background-color: #ececec;
+            color: #3b3b3b;
+            padding: 0;
+            line-height: 42px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 400;
+            border-bottom: 1px solid white;
+        }
+
+        .accordion-body:hover {
+            color: #009FE7;
+        }
+
+        .membercenter {
+            width: 100%;
+            height: 40px;
+            background-color: #FF6D35;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            color: white;
+            font-weight: 700;
+            line-height: 40px;
+            text-align: center;
+            letter-spacing: 6%;
+        }
+
+        footer {
+            height: 336px;
+            width: 100%;
+            background-color: #ececec;
+            padding: 0px 10px;
+        }
+
+        .footer-body {
+            border-top: 1px solid #3b3b3b;
+        }
+
+        .footer-top {
+            height: 144px;
+            padding: 16px 20px;
+        }
+
+        .footer-middle {
+            height: 120px;
+            padding: 28px 20px;
+        }
+
+        .footer-bottom {
+            height: 72px;
+            padding: 15px 20px 14px;
+        }
+
+        .title {
+            font-weight: 700;
+            line-height: 19px;
+        }
+
+        .more-info {
+            height: 64px;
+        }
+
+        .contact-info {
+            height: 69px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .social-icon-line {
+            background-image: url(./logo-img/line-brands-solid.svg);
+        }
+
+        .social-icon-ig {
+            background-image: url(./logo-img/square-instagram-brands-solid.svg);
+        }
+
+        .social-icon-fb {
+            background-image: url(./logo-img/square-facebook-brands-solid.svg);
+        }
+
+        .social-icon-yt {
+            background-image: url(./logo-img/square-youtube-brands-solid.svg);
+        }
+
+        /* nav-footer-style */
+    </style>
 </head>
-<style>
-    * {
-        box-sizing: border-box;
-    }
 
-    .bannar-img {
-        margin-top: 70px;
-        width: 100%;
-        height: 246px;
-        background-position: center;
-    }
-
-    .img-fluid {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .line {
-        width: 50%;
-        height: 2px;
-        background-color: rgb(255, 109, 53);
-        margin: 0 auto;
-    }
-
-    .card {
-        /* width: 273px; */
-        height: 432px;
-        border: none;
-        margin-bottom: 20px;
-    }
-
-    .card-countdown {
-        width: 205px;
-        height: 88px;
-        border-bottom: 3px solid #FF6035;
-        padding: 20px 0px;
-    }
-
-    .card-top {
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 19px;
-    }
-
-    .card-body {
-        width: 220px;
-        font-size: 20px;
-        font-weight: 700;
-        line-height: 24px;
-        padding: 10px;
-        text-align: center;
-    }
-
-    .card-title {
-        font-size: 24px;
-        font-weight: 600;
-        line-height: 29px;
-        margin: 0;
-    }
-
-    .card1 {
-        margin-top: 30px;
-    }
-
-    .card2 {
-        margin-top: 30px;
-        font-size: 13px;
-        width: 273px;
-        height: 88px;
-        line-height: 16px;
-    }
-
-    .btn-final {
-        margin-top: 30px;
-        width: 153px;
-        height: 76px;
-        background-color: #FF6D35;
-        border: none;
-        border-radius: 10px;
-        font-size: 20px;
-        font-weight: 700;
-        box-shadow: 0px 4px 4px 0px #00000040;
-        line-height: 20px;
-        color: white;
-    }
-
-    .btn-final:hover {
-        background-color: #009fE7;
-    }
-
-    .btn-final:active {
-        opacity: 0.7;
-    }
-
-    .btn-final span {
-        font-size: 12px;
-        line-height: 12px;
-        font-weight: 400;
-    }
-
-    /* nav-footer-style */
-
-    a {
-        text-decoration: none;
-        color: #009fE7
-    }
-
-    footer ul {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        color: #3b3b3b;
-    }
-
-    footer ul li a {
-        font-size: 12px;
-        font-weight: 700;
-        color: #3b3b3b;
-    }
-
-    footer ul li {
-        line-height: 14.52px;
-    }
-
-    .navbar {
-        width: 100%;
-        height: 70px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: #FF6D35;
-        padding: 10px 33px;
-        z-index: 8;
-    }
-
-    .bars-icon {
-        width: 19px;
-        height: 19px;
-        color: #3b3b3b;
-        background-image: url(./logo-img/bars-solid.svg);
-        background-size: cover;
-        cursor: pointer;
-    }
-
-    .container {
-        padding: 0;
-        margin: 0;
-    }
-
-    .running-logo {
-        width: 91px;
-        height: 50px;
-        background-image: url(./logo-img/Running-Man-LOGO1.png);
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        transform: translate(-50%, 0);
-    }
-
-    .ham-list {
-        width: 176px;
-        display: none;
-        border-radius: 12px;
-        background-color: white;
-        z-index: 9;
-    }
-
-    #ham-switch-menu:checked~.ham-list {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #ham-switch-menu:not(:checked)~.ham-list {
-        display: none;
-    }
-
-    .list-top {
-        width: 100%;
-        height: 70px;
-        border-top-left-radius: 12px;
-        border-top-right-radius: 12px;
-        padding: 27px 17px 24px 33px;
-    }
-
-    .bars-icon-inner {
-        background-image: url(./logo-img/bars-solid-og.svg);
-        width: 19px;
-        height: 19px;
-        background-position: center;
-        background-size: cover;
-        cursor: pointer;
-    }
-
-    .search {
-        height: 44px;
-    }
-
-    .custom-search {
-        border: 2px solid #333;
-        border-radius: 25px;
-        padding: 5px 15px;
-        width: 151px;
-        height: 28px;
-        background-color: white;
-    }
-
-    .custom-search input {
-        width: 95px;
-        height: 24px;
-        border: none;
-        outline: none;
-        font-size: 14px;
-    }
-
-    .custom-search input::placeholder {
-        color: #3b3b3b;
-    }
-
-    .custom-search button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        margin-left: 5px;
-    }
-
-    .custom-search button i {
-        font-size: 14px;
-        color: #FF6D35;
-    }
-
-    .list-icon {
-        width: 16px;
-        height: 16px;
-        background-image: url(./logo-img/message-solid.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-
-    .list-icon-news {
-        background-image: url(./logo-img/message-solid.svg);
-    }
-
-    .list-icon-allgames {
-        background-image: url(./logo-img/trophy-solid.svg);
-    }
-
-    .list-icon-helpcenter {
-        background-image: url(./logo-img/user-regular.svg);
-    }
-
-    .list-icon-che-right {
-        background-image: url(./logo-img/chevron-right-solid.svg);
-    }
-
-    .list-icon-che-down {
-        background-image: url(./logo-img/chevron-down-solid.svg);
-    }
-
-    .accordion-item {
-        width: 176px;
-        color: #3b3b3b;
-        border: none;
-    }
-
-    .accordion-button {
-        height: 40px;
-        padding: 0px 10px 0px 13px;
-        font-weight: 700;
-        display: flex;
-        justify-content: space-between;
-        color: #3b3b3b;
-        background-color: white;
-        border-radius: 0;
-    }
-
-
-    .accordion-item:first-of-type .accordion-button,
-    .accordion-item:last-of-type .accordion-button.collapsed {
-        border-radius: 0;
-    }
-
-    .accordion-button:focus,
-    .accordion-button:not(.collapsed) {
-        box-shadow: none;
-        background-color: #009FE7;
-        color: white;
-    }
-
-    .btn-news:focus .list-icon-news {
-        background-image: url(./logo-img/message-solid-wh.svg);
-    }
-
-    .btn-news:focus .list-icon-che-right {
-        background-image: url(./logo-img/chevron-right-solid-wh.svg);
-    }
-
-    .btn-helpcenter:focus .list-icon-helpcenter {
-        background-image: url(./logo-img/user-regular-wh.svg);
-    }
-
-    .btn-helpcenter:focus .list-icon-che-down {
-        background-image: url(./logo-img/chevron-up-solid.svg);
-    }
-
-    .btn-allgames:focus .list-icon-allgames {
-        background-image: url(./logo-img/trophy-solid-wh.svg);
-    }
-
-    .btn-allgames:focus .list-icon-che-down {
-        background-image: url(./logo-img/chevron-up-solid.svg);
-    }
-
-    .accordion-button::after {
-        display: none;
-    }
-
-    .collapse::after {
-        width: auto;
-        height: auto;
-    }
-
-    .accordion-body {
-        height: 42px;
-        background-color: #ececec;
-        color: #3b3b3b;
-        padding: 0;
-        line-height: 42px;
-        text-align: center;
-        font-size: 14px;
-        font-weight: 400;
-        border-bottom: 1px solid white;
-    }
-
-    .accordion-body:hover {
-        color: #009FE7;
-    }
-
-    .membercenter {
-        width: 100%;
-        height: 40px;
-        background-color: #FF6D35;
-        border-bottom-left-radius: 12px;
-        border-bottom-right-radius: 12px;
-        color: white;
-        font-weight: 700;
-        line-height: 40px;
-        text-align: center;
-        letter-spacing: 6%;
-    }
-
-    footer {
-        height: 336px;
-        width: 100%;
-        background-color: #ececec;
-        padding: 0px 10px;
-    }
-
-    .footer-body {
-        border-top: 1px solid #3b3b3b;
-    }
-
-    .footer-top {
-        height: 144px;
-        padding: 16px 20px;
-    }
-
-    .footer-middle {
-        height: 120px;
-        padding: 28px 20px;
-    }
-
-    .footer-bottom {
-        height: 72px;
-        padding: 15px 20px 14px;
-    }
-
-    .title {
-        font-weight: 700;
-        line-height: 19px;
-    }
-
-    .more-info {
-        height: 64px;
-    }
-
-    .contact-info {
-        height: 69px;
-    }
-
-    .social-icon {
-        width: 40px;
-        height: 40px;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
-    .social-icon-line {
-        background-image: url(./logo-img/line-brands-solid.svg);
-    }
-
-    .social-icon-ig {
-        background-image: url(./logo-img/square-instagram-brands-solid.svg);
-    }
-
-    .social-icon-fb {
-        background-image: url(./logo-img/square-facebook-brands-solid.svg);
-    }
-
-    .social-icon-yt {
-        background-image: url(./logo-img/square-youtube-brands-solid.svg);
-    }
-
-    /* nav-footer-style */
-</style>
 
 <body class="d-flex flex-column justify-content-center align-items-center">
     <nav class="navbar">
@@ -543,6 +543,7 @@
             </div>
         </div>
     </nav>
+
     <div class="bannar-img">
         <img src="./logo-img/chii圖片.jpg" class="img-fluid" alt="...">
     </div>
@@ -567,6 +568,7 @@
         </div>
         <a href="notice-done.html"><button type="button" class="btn-final">我要報名<br><span>REGISTER</span></button></a>
     </div>
+    
     <footer>
         <div class="footer-body footer-top d-flex flex-column justify-content-between">
             <div class="title">聯絡我們</div>
@@ -611,10 +613,10 @@
             let timenow = new Date();
             let get = endtime - timenow;
 
-            let sec = Math.floor(get/1000) % 60;
-            let min = Math.floor(get/1000/60) % 60;
-            let hour = Math.floor(get/1000/60/60) % 24;
-            let day = Math.floor(get/1000/60/60/24);
+            let sec = Math.floor(get / 1000) % 60;
+            let min = Math.floor(get / 1000 / 60) % 60;
+            let hour = Math.floor(get / 1000 / 60 / 60) % 24;
+            let day = Math.floor(get / 1000 / 60 / 60 / 24);
 
             time.textContent = `${day}天 ${hour}時 ${min}分 ${sec}秒`;
         }
@@ -622,9 +624,9 @@
         const timeinterval = setInterval(function () {
             let end = endtime - (new Date());
             if (end < 0) {
-            clearInterval(timeinterval);
+                clearInterval(timeinterval);
             } else {
-            gettime();
+                gettime();
             }
         }, 1000);
     </script>
