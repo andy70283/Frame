@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員中心</title>
+    <style>
+        body {
+            width: 375px;
+            font-family: 'Arial', sans-serif;
+            background-color: black;
+        }
+
+        .rice-header {
+            height: 70px;
+            background-color: #ff7849;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .rice-container {
+            height: 653px;
+            background-color: white;
+            padding: 10px;
+            line-height: 2;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rice-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .rice-logo img {
+            max-width: 100px;
+        }
+
+        .rice-card {
+            width: 343px;
+            height: 560px;
+            border-radius: 8px;
+            border: 2px solid black;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            font-size: 14px;
+        }
+
+        .rice-card-header {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .rice-nav-tabs {
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .rice-nav-tabs a {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            color: #000;
+            border-bottom: 2px solid transparent;
+        }
+
+        .rice-nav-tabs a.active {
+            color: #ff7849;
+            border-bottom-color: #ff7849;
+        }
+
+        .rice-form-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .rice-form-group-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        .rice-form-control {
+            width: 90%;
+            height: 36px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #ddd;
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+
+        .rice-form-control:focus {
+            outline: none;
+            border-color: #ff7849;
+        }
+
+        .rice-forgot-password {
+            text-align: right;
+            font-size: 0.9rem;
+        }
+
+        .rice-box{
+            display: flex;
+            align-items: center;
+        }
+        .rice-refresh-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            display: inline-block;
+            margin-top: 6px;
+        }
+
+        .rice-captcha {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #f5f2a5;
+            border: 2px solid #000;
+            color: #000;
+            border-radius: 8px;
+        }
+
+        .rice-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #ff7849;
+            color: #fff;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+
+        }
+
+        .rice-btn:hover {
+            background-color: #e5673d;
+        }
+
+        .rice-contact-info {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .rice-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .rice-social-links img {
+            width: 30px;
+        }
+
+        footer {
+            background-color: rgb(222, 222, 222);
+            height: 336px;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rice-header">
+        <h1>LOGO</h1>
+    </div>
+    <div class="rice-container">
+        <!-- Login Card -->
+        <div class="rice-card">
+            <div class="rice-card-header">會員中心</div>
+
+            <!-- Tabs -->
+            <div class="rice-nav-tabs">
+                <a href="#" class="active">會員登入</a>
+                <a href="#">會員註冊</a>
+            </div>
+
+            <!-- Form -->
+            <form>
+                <label for="email" class="rice-form-label">帳號 (Email格式)</label>
+                <input type="email" id="email" class="rice-form-control" placeholder="請輸入您的Email">
+                <br>
+                <div class="rice-form-group rice-form-group-flex">
+                    <label for="password" class="rice-form-label">密碼</label>
+                    <a href="#" class="rice-forgot-password">忘記密碼</a>
+                </div>
+                <input type="password" id="password" class="rice-form-control" placeholder="請輸入密碼">
+
+
+                <label for="captcha" class="rice-form-label">驗證碼</label>
+                <input type="text" id="captcha" class="rice-form-control" placeholder="輸入驗證碼">
+                <div class="rice-box">
+                <span class="rice-captcha">QeS24a</span>
+                <button type="button" class="rice-refresh-btn" aria-label="重新整理驗證碼">
+                    <img src="./img/ic_baseline-change-circle.png" alt="刷新驗證碼">
+                </button>
+            </div>
+                <button type="submit" class="rice-btn">登入</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-light">
+        <p>聯絡我們 | 電話：(04) 2451-7250 | 地址：台中市西屯區文華路10號</p>
+    </footer>
+
+</body>
+
+</html>

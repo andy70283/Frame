@@ -1,0 +1,322 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+footer ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    color: #3b3b3b;
+}
+
+footer ul li a {
+    font-size: 12px;
+    font-weight: 700;
+    color: #3b3b3b;
+}
+
+footer ul li {
+    line-height: 14.52px;
+}
+
+.navbar {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #FF6D35;
+    padding: 10px 33px;
+    z-index: 8;
+}
+
+.bars-icon {
+    width: 19px;
+    height: 19px;
+    color: #3b3b3b;
+    background-image: url('../logo-img/bars-solid.svg');
+    background-size: cover;
+    cursor: pointer;
+}
+
+.container {
+    padding: 0;
+    margin: 0;
+}
+
+.running-logo {
+    width: 91px;
+    height: 50px;
+    background-image: url('../logo-img/Running-Man-LOGO1.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: translate(-50%, 0);
+}
+
+.ham-list {
+    width: 176px;
+    display: none;
+    border-radius: 12px;
+    background-color: white;
+}
+
+#ham-switch-menu:checked~.ham-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#ham-switch-menu:not(:checked)~.ham-list {
+    display: none;
+}
+
+.list-top {
+    width: 100%;
+    height: 70px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 27px 17px 24px 33px;
+}
+
+.bars-icon-inner {
+    background-image: url('../logo-img/bars-solid-og.svg');
+    width: 19px;
+    height: 19px;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.search {
+    height: 44px;
+}
+
+.custom-search {
+    border: 2px solid #333;
+    border-radius: 25px;
+    padding: 5px 15px;
+    width: 151px;
+    height: 28px;
+    background-color: white;
+}
+
+.custom-search input {
+    width: 95px;
+    height: 24px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.custom-search input::placeholder {
+    color: #3b3b3b;
+}
+
+.custom-search button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.custom-search button i {
+    font-size: 14px;
+    color: #FF6D35;
+}
+
+.list-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url('../logo-img/message-solid.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.list-icon-news {
+    background-image: url('../logo-img/message-solid.svg');
+}
+
+.list-icon-allgames {
+    background-image: url('../logo-img/trophy-solid.svg');
+}
+
+.list-icon-helpcenter {
+    background-image: url('../logo-img/user-regular.svg');
+}
+
+.list-icon-che-right {
+    background-image: url('../logo-img/chevron-right-solid.svg');
+}
+
+.list-icon-che-down {
+    background-image: url('../logo-img/chevron-down-solid.svg');
+}
+
+.accordion-item {
+    width: 176px;
+    color: #3b3b3b;
+    border: none;
+}
+
+.accordion-button {
+    height: 40px;
+    padding: 0px 10px 0px 13px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    color: #3b3b3b;
+    background-color: white;
+    border-radius: 0;
+}
+
+
+.accordion-item:first-of-type .accordion-button,
+.accordion-item:last-of-type .accordion-button.collapsed {
+    border-radius: 0;
+}
+
+.accordion-button:focus,
+.accordion-button:not(.collapsed) {
+    box-shadow: none;
+    background-color: #009FE7;
+    color: white;
+}
+
+.btn-news:focus .list-icon-news {
+    background-image: url('../logo-img/message-solid-wh.svg');
+}
+
+.btn-news:focus .list-icon-che-right {
+    background-image: url('../logo-img/chevron-right-solid-wh.svg');
+}
+
+.btn-helpcenter:focus .list-icon-helpcenter {
+    background-image: url('../logo-img/user-regular-wh.svg');
+}
+
+.btn-helpcenter:focus .list-icon-che-down {
+    background-image: url('../logo-img/chevron-up-solid.svg');
+}
+
+.btn-allgames:focus .list-icon-allgames {
+    background-image: url('../logo-img/trophy-solid-wh.svg');
+}
+
+.btn-allgames:focus .list-icon-che-down {
+    background-image: url('../logo-img/chevron-up-solid.svg');
+}
+
+.accordion-button::after {
+    display: none;
+}
+
+.collapse::after {
+    width: auto;
+    height: auto;
+}
+
+.accordion-body {
+    height: 42px;
+    background-color: #ececec;
+    color: #3b3b3b;
+    padding: 0;
+    line-height: 42px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    border-bottom: 1px solid white;
+}
+
+.accordion-body:hover {
+    color: #009FE7;
+}
+
+.membercenter {
+    width: 100%;
+    height: 40px;
+    background-color: #FF6D35;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    color: white;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: center;
+    letter-spacing: 6%;
+}
+
+footer {
+    height: 336px;
+    width: 100%;
+    background-color: #ececec;
+    padding: 0px 10px;
+}
+
+.footer-body {
+    border-top: 1px solid #3b3b3b;
+}
+
+.footer-top {
+    height: 144px;
+    padding: 16px 20px;
+}
+
+.footer-middle {
+    height: 120px;
+    padding: 28px 20px;
+}
+
+.footer-bottom {
+    height: 72px;
+    padding: 15px 20px 14px;
+}
+
+.title {
+    font-weight: 700;
+    line-height: 19px;
+}
+
+.more-info {
+    height: 64px;
+}
+
+.contact-info {
+    height: 69px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.social-icon-line {
+    background-image: url('../logo-img/line-brands-solid.svg');
+}
+
+.social-icon-ig {
+    background-image: url('../logo-img/square-instagram-brands-solid.svg');
+}
+
+.social-icon-fb {
+    background-image: url('../logo-img/square-facebook-brands-solid.svg');
+}
+
+.social-icon-yt {
+    background-image: url('../logo-img/square-youtube-brands-solid.svg');
+}
+
+main {
+    margin-top: 70px;
+}
