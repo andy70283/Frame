@@ -168,11 +168,13 @@
             font-size: 11px;
             /* margin-top: 5px; */
         }
+
         .warning {
             color: red;
             position: absolute;
             font-size: 14px;
         }
+
         .warning1 {
             color: red;
             position: absolute;
@@ -212,13 +214,12 @@
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFirst">
-                                <button class="accordion-button collapsed btn-news" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseFirst" aria-expanded="false"
-                                    aria-controls="collapseFirst">
-                                    <div class="list-icon list-icon-news"></div>
-                                    最新消息
-                                    <div class="list-icon list-icon-che-right"></div>
-                                </button>
+                            <button class="accordion-button collapsed btn-news" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFirst" aria-expanded="false" aria-controls="collapseFirst">
+                                <div class="list-icon list-icon-news"></div>
+                                最新消息
+                                <div class="list-icon list-icon-che-right"></div>
+                            </button>
                         </h2>
                         <div id="collapseFirst" class="accordion-collapse collapse" aria-labelledby="headingFirst">
                         </div>
@@ -473,7 +474,8 @@
                 </div>
                 <div class="mb-4">
                     <label for="address" class="form-label"><span>*</span>路,巷,弄,號 / Road,Lane,Lane,Number</label>
-                    <input type="text" id="address" class="input-check form-control" placeholder="請選行政區後填物資寄送地址/address">
+                    <input type="text" id="address" class="input-check form-control"
+                        placeholder="請選行政區後填物資寄送地址/address">
                     <span class="warning"></span>
                 </div>
                 <div class="mb-4">
@@ -584,23 +586,23 @@
         let inputcheck = document.querySelectorAll('.input-check');
         let reg = /^[A-Z]{1}[1-2]{1}[0-9]{8}$/;
         let reg1 = /^[0]{1}[9]{1}[0-9]{8}$/;
-    
-        btn.addEventListener('click', function() {
+
+        btn.addEventListener('click', function () {
             let isValid = true;
             inputcheck.forEach(item => {
                 if (!item.value) {
                     let warning = item.parentNode.children[2];
                     warning.textContent = '請填寫完整';
                     swal(
-                    '錯誤!',
-                    '請填寫完整!',
-                    'error'
+                        '錯誤!',
+                        '請填寫完整!',
+                        'error'
                     );
                     isValid = false;
                 }
                 return;
             });
-    
+
             if (!birthdate.value || !birthmonth.value || !birthyear.value) {
                 warning1.textContent = '請填寫完整';
                 swal(
@@ -613,7 +615,7 @@
             }
 
 
-            if(reg.test(idnumber.value) === false) {
+            if (reg.test(idnumber.value) === false) {
                 let warning = idnumber.parentNode.children[2];
                 swal(
                     '錯誤!',
@@ -623,7 +625,7 @@
                 return;
             }
 
-            if(reg1.test(mobilephone.value) === false) {
+            if (reg1.test(mobilephone.value) === false) {
                 let warning = mobilephone.parentNode.children[2];
                 swal(
                     '錯誤!',
@@ -632,7 +634,7 @@
                 );
                 return;
             }
-    
+
             if (isValid) {
                 let formData = {
                     country: country.value,
@@ -662,7 +664,7 @@
                 );
             }
         });
-    
+
         function res() {
             inputcheck.forEach(item => {
                 if (item.value) {
@@ -670,12 +672,12 @@
                     warning.textContent = '';
                 }
             });
-    
+
             if (birthdate.value && birthmonth.value && birthyear.value) {
                 warning1.textContent = '';
             }
         }
-    
+
         country.addEventListener('change', res);
         name.addEventListener('input', res);
         gender.addEventListener('change', res);
@@ -692,7 +694,7 @@
         phone.addEventListener('input', res);
         emergencycontactname.addEventListener('input', res);
         emergencymobilephone.addEventListener('input', res);
-    </script>        
+    </script>
 </body>
 
 </html>
