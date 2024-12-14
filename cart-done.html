@@ -439,10 +439,6 @@
                 <label for=""><span>*</span>請選擇方式</label>
                 <select class="form-select" aria-label="Default select example" id="invoice">
                     <option value="" selected disabled>請選擇</option>
-                    <option value="1">電子發票載具</option>
-                    <option value="2">手機條碼載具</option>
-                    <option value="3">自然人憑證條碼</option>
-                    <option value="4">愛心捐碼</option>
                 </select>
             </div>
             <div class="confirm-button">
@@ -508,6 +504,22 @@
         document.getElementById('namephone').innerHTML = name + '-' + mobilephone;
         document.getElementById('sendaddress').innerHTML = city + district + roadname + address + '號';
 
+        invoicetype.addEventListener('change', function () {
+            if (invoicetype.value == 2) {
+                invoice.innerHTML = `
+                    <option value="" selected disabled>請選擇</option>
+                    <option value="1">公司統一編號</option>
+                `
+            } else{
+                invoice.innerHTML = `
+                    <option value="" selected disabled>請選擇</option>
+                    <option value="1">電子發票載具</option>
+                    <option value="2">手機條碼載具</option>
+                    <option value="3">自然人憑證條碼</option>
+                    <option value="4">愛心捐碼</option>
+                `
+            }
+        })  
         btn.addEventListener('click', function () {
             if (check.checked == false) {
                 swal(

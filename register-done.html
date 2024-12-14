@@ -361,71 +361,9 @@
                 <div class="mb-4">
                     <label for="birthday" class="form-label"><span>*</span>生日 / Birthday</label>
                     <div class="d-flex gap-2">
-                        <select class="form-select" id="birthyear">
-                            <option value="" selected disabled>年</option>
-                            <option value="1990">1990</option>
-                            <option value="1991">1991</option>
-                            <option value="1992">1992</option>
-                            <option value="1993">1993</option>
-                            <option value="1994">1994</option>
-                            <option value="1995">1995</option>
-                            <option value="1996">1996</option>
-                            <option value="1997">1997</option>
-                            <option value="1998">1998</option>
-                            <option value="1999">1999</option>
-                            <option value="2000">2000</option>
-                            <option value="2001">2001</option>
-                            <option value="2002">2002</option>
-                        </select>
-                        <select class="form-select" id="birthmonth">
-                            <option value="" selected disabled>月</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                        </select>
-                        <select class="form-select" id="birthdate">
-                            <option value="" selected disabled>日</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                            <option value="13">13</option>
-                            <option value="14">14</option>
-                            <option value="15">15</option>
-                            <option value="16">16</option>
-                            <option value="17">17</option>
-                            <option value="18">18</option>
-                            <option value="19">19</option>
-                            <option value="20">20</option>
-                            <option value="21">21</option>
-                            <option value="22">22</option>
-                            <option value="23">23</option>
-                            <option value="24">24</option>
-                            <option value="25">25</option>
-                            <option value="26">26</option>
-                            <option value="27">27</option>
-                            <option value="28">28</option>
-                            <option value="29">29</option>
-                            <option value="30">30</option>
-                            <option value="31">31</option>
-                        </select>
+                        <select class="form-select" id="birthyear"></select>
+                        <select class="form-select" id="birthmonth"></select>
+                        <select class="form-select" id="birthdate"></select>
                     </div>
                     <span class="warning1"></span>
                 </div>
@@ -436,27 +374,12 @@
                 </div>
                 <div class="mb-4">
                     <label for="city" class="form-label"><span>*</span>縣市 / City</label>
-                    <select id="city" class="input-check form-select">
-                        <option value="" selected disabled>請選擇</option>
-                        <option value="台北市">台北市</option>
-                        <option value="新北市">新北市</option>
-                        <option value="桃園市">桃園市</option>
-                        <option value="台中市">台中市</option>
-                        <option value="高雄市">高雄市</option>
-                        <option value="台南市">台南市</option>
-                    </select>
+                    <select id="city" class="input-check form-select" ></select>
                     <span class="warning"></span>
                 </div>
                 <div class="mb-4">
                     <label for="district" class="form-label"><span>*</span>鄉鎮市區 / District</label>
-                    <select id="district" class="input-check form-select">
-                        <option value="" selected disabled>請選擇</option>
-                        <option value="中區">中區</option>
-                        <option value="東區">東區</option>
-                        <option value="南區">南區</option>
-                        <option value="西區">西區</option>
-                        <option value="北區">北區</option>
-                    </select>
+                    <select id="district" class="input-check form-select"></select>
                     <span class="warning"></span>
                 </div>
                 <div class="mb-4">
@@ -479,8 +402,7 @@
                 <div class="mb-4">
                     <label for="address" class="form-label"><span>* 確認寄送地址/Address</span></label>
                     <div class="viewpostage">檢視郵資/View Postage</div>
-                    <input class="form-control" type="text" placeholder="資料自動帶入" aria-label="Disabled input example"
-                        disabled>
+                    <input class="form-control" type="text" id="automatic" placeholder="資料自動帶入" aria-label="Disabled input example" disabled>
                     <div class="addresscheck">煩請務必確認完整地址 !</div>
                 </div>
             </div>
@@ -558,6 +480,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
     <script src="https://demeter.5fpro.com/tw/zipcode-selector.js"></script>
+    <script src="city.js"></script>
     <script>
         let btn = document.querySelector('.btn2');
         let birthdate = document.querySelector('#birthdate');
@@ -582,9 +505,73 @@
         let emergencycontactname = document.querySelector('#emergencycontactname');
         let emergencymobilephone = document.querySelector('#emergencymobilephone');
         let inputcheck = document.querySelectorAll('.input-check');
+        let automatic = document.querySelector('#automatic');
         let reg = /^[A-Z]{1}[1-2]{1}[0-9]{8}$/;
         let reg1 = /^[0]{1}[9]{1}[0-9]{8}$/;
-    
+
+        birthyear.innerHTML = '<option value="" selected disabled>年</option>';
+        birthmonth.innerHTML = '<option value="" selected disabled>月</option>';
+        birthdate.innerHTML = '<option value="" selected disabled>日</option>';
+
+        for (let i = 1940; i <= 2020; i++) {
+            let option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            birthyear.appendChild(option);
+        }
+        for (let i = 1; i <= 12; i++) {
+            let option = document.createElement('option');
+            option.value = i;
+            option.innerHTML = i;
+            birthmonth.appendChild(option);
+        }
+        birthmonth.addEventListener('change',function(){
+        birthdate.innerHTML = '';
+        if (birthmonth.value == 2) {
+            birthdate.innerHTML = '<option value="" selected disabled>日</option>';
+            for (let i = 1; i <= 28; i++) {
+            let option = document.createElement('option');
+            option.value = i;
+            option.innerHTML = i;
+            birthdate.appendChild(option);
+            }
+        } else if (birthmonth.value == 4 || birthmonth.value == 6 || birthmonth.value == 9 || birthmonth.value == 11) {
+            birthdate.innerHTML = '<option value="" selected disabled>日</option>';
+            for (let i = 1; i <= 30; i++) {
+            let option = document.createElement('option');
+            option.value = i;
+            option.innerHTML = i;
+            birthdate.appendChild(option);
+            }
+        } else {
+            birthdate.innerHTML = '<option value="" selected disabled>日</option>';
+            for (let i = 1; i <= 31; i++) {
+            let option = document.createElement('option');
+            option.value = i;
+            option.innerHTML = i;
+            birthdate.appendChild(option);
+            }
+        }
+        }
+    )
+
+        function auto() {
+            automatic.value = city.value + district.value + roadname.value + address.value ;
+        }
+        country.addEventListener('change', function() {
+            auto()
+        });
+        district.addEventListener('change', function() {
+            auto()
+        });
+        roadname.addEventListener('change', function() {
+            auto()
+        });
+        address.addEventListener('input', function() {
+            auto()
+        });
+
+        console.log(automatic.value);
         btn.addEventListener('click', function() {
             let isValid = true;
             inputcheck.forEach(item => {
