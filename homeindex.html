@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/nav-footer.css">
+    <style>
+        .nav-tabs {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            gap: 80px;
+            border: none;
+            --bs-nav-tabs-border-color: transparent;
+            --bs-nav-tabs-link-active-border-color: transparent;
+            --bs-nav-tabs-link-hover-border-color: transparent;
+        }
+
+        .nav-pills .nav-link {
+            color: #3b3b3b;
+            background-color: #ececec;
+        }
+
+        .nav-pills {
+            gap: 10px;
+            font-size: 12px;
+            --bs-nav-pills-link-active-bg: #FF6D35;
+        }
+
+        .nav-link:hover {
+            color: #009FE7;
+        }
+
+        .big-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .card {
+            width: 340px;
+            height: 292px;
+            border-radius: 14px;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            color: white;
+            background-color: #FF6D35;
+            border-radius: 13px;
+            padding: 5px 10px;
+        }
+
+        .fs-6 {
+            font-size: 12px !important;
+        }
+
+        .card1 {
+            margin: auto;
+            border: 2px solid #ffb65f;
+            border-radius: 5px;
+            padding: 10px;
+            min-height: 108.5px;
+        }
+
+        /* -----------------------------------月曆卡css ------------------------------------------*/
+
+        main ul {
+            list-style-type: none;
+            text-align: center;
+            font-family: Verdana, sans-serif;
+        }
+
+        main li:not(:first-child) {
+            cursor: pointer;
+        }
+
+        .calender {
+            width: 340px;
+            margin: auto;
+            border-radius: 15px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+            padding: 10px 0px;
+        }
+
+        .calender .month {
+            padding: 10px 0px 5px;
+            color: #3b3b3b;
+            width: 100%;
+            position: relative;
+        }
+
+        .calender .month .next,
+        .calender .month .prev {
+            position: absolute;
+            top: calc(50% - 15px);
+            cursor: pointer;
+            padding: 5px;
+            display: block;
+            color: #FF6D35;
+        }
+
+        .calender .month .prev {
+            left: 10px;
+        }
+
+        .calender .month .next {
+            right: 10px;
+        }
+
+        .calender .month .next:hover,
+        .calender .month .prev:hover {
+            color: #009FE7;
+        }
+
+        .calender .weeks {
+            display: flex;
+            padding: 0px 5px;
+        }
+
+        .calender .weeks li {
+            width: 47px;
+            position: relative;
+            animation: motion 2s;
+            padding: 10px;
+            font-size: 12px;
+        }
+
+
+        .calender .days {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0px 5px;
+        }
+
+        .calender .days li {
+            flex-basis: calc(100% / 7);
+            padding: 5px 0;
+            color: #3b3b3b;
+            border-radius: 10px;
+            /* background-color: #bdc3c7; */
+        }
+
+        .calender .days li:hover {
+            background-color: #FF6D35;
+            color: white;
+            opacity: 0.8;
+        }
+
+        /* -------------------------------------------------------------------------------- */
+
+        /* 活動資訊區 */
+
+        .result {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        #home-tab,
+        #profile-tab {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column justify-content-center align-content-center">
+    <!-- 漢堡條 -->
+    <nav class="navbar">
+        <div class="container">
+            <!-- 漢堡按鈕 -->
+            <input type="checkbox" name="" id="ham-switch-menu" hidden>
+            <label for="ham-switch-menu">
+                <div class="ham-switch-menu-block" tabindex="1">
+                    <div class="bars-icon"></div>
+                </div>
+            </label>
+            <a href="./index.html" class="running-logo position-absolute start-50"></a>
+            <div class="ham-list position-absolute top-0 start-0" id="navbarContent">
+                <!-- 第一列：搜尋欄 -->
+                <div class="list-top">
+                    <label for="ham-switch-menu">
+                        <div class="bars-icon-inner"></div>
+                    </label>
+                </div>
+                <div class="search d-flex align-items-center">
+                    <div class="custom-search d-flex align-items-center justify-content-between">
+                        <input type="text" placeholder="搜尋">
+                        <button type="submit">
+                            <i class="bi bi-search"></i> <!-- Bootstrap 圖標 -->
+                        </button>
+                    </div>
+                </div>
+                <!-- 第二列：手風琴選單 1 -->
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFirst">
+                            <button class="accordion-button collapsed btn-news" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFirst" aria-expanded="false" aria-controls="collapseFirst">
+                                <div class="list-icon list-icon-news"></div>
+                                最新消息
+                                <div class="list-icon list-icon-che-right"></div>
+                            </button>
+                        </h2>
+                        <div id="collapseFirst" class="accordion-collapse collapse" aria-labelledby="headingFirst">
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed btn-allgames" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
+                                aria-controls="collapseOne">
+                                <div class="list-icon list-icon-allgames"></div>
+                                全部賽事
+                                <div class="list-icon list-icon-che-down"></div>
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                            <a href="">
+                                <div class="accordion-body">
+                                    一般賽事
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="accordion-body">
+                                    親子路跑
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="accordion-body">
+                                    IP路跑
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="accordion-body border-bottom-0">
+                                    歷屆賽事
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- 第三列：手風琴選單 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed btn-helpcenter" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                aria-controls="collapseTwo">
+                                <div class="list-icon list-icon-helpcenter"></div>
+                                客服中心
+                                <div class="list-icon list-icon-che-down"></div>
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                            <a href="">
+                                <div class="accordion-body">
+                                    常見問題
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="accordion-body">
+                                    退費申請
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="accordion-body border-bottom-0">
+                                    聯絡我們
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="./membercenter-done.html" class="membercenter">
+                    登入/會員中心
+                </a>
+            </div>
+        </div>
+
+    </nav>
+    <main class="homepage-container">
+        <!------------------------------------------------- 輪播卡片 ---------------------------------------------------->
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="activity-done.html"><img class="d-block w-100" src="./homepage-img/輪播卡片.png" alt="輪播卡片-1"></a>
+                </div>
+                <div class="carousel-item">
+                    <a href="activity-done.html"><img class="d-block w-100" src="./homepage-img/輪播卡片1.png" alt="輪播卡片-2"></a>
+                </div>
+                <div class="carousel-item">
+                    <a href="activity-done.html"><img class="d-block w-100" src="./homepage-img/輪播卡片2.png" alt="輪播卡片-3"></a>
+                </div>
+                <div class="carousel-item">
+                    <a href="activity-done.html"><img class="d-block w-100" src="./homepage-img/輪播卡片3.png" alt="輪播卡片-4"></a>
+                </div>
+                <div class="carousel-item">
+                    <a href="activity-done.html"><img class="d-block w-100" src="./homepage-img/輪播卡片4.png" alt="輪播卡片-5"></a>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden"></span>
+            </button>
+        </div>
+        <!------------------------------------------------ 活動資訊及月曆 ------------------------------------------>
+        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation" id="hometab">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button"
+                    role="tab" aria-controls="home-tab-pane" aria-selected="true">
+                    <img class="big-icon" src="./homepage-img/home.jpg" alt="活動頁圖示">
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button"
+                    role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                    <img class="big-icon" src="./homepage-img/date.jpg" alt="月曆月圖示">
+                </button>
+            </li>
+        </ul>
+        <!-------------------------------------------------- 活動選項 --------------------------------------------->
+        <div class="tab-content d-flex justify-content-center" id="myTabContent">
+            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                            aria-selected="true">IP聯名活動
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                            aria-selected="false">親子活動
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                            aria-selected="false">一般賽事
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <!------------------------------------------ IP活動卡片  -------------------------------------------------->
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                        aria-labelledby="pills-home-tab" tabindex="0">
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card1-1.png" class="card-img-top" alt="IP聯名-活動報名圖片-1">
+                                <div class="card-body">
+                                    <span class="badge">報名中</span>
+                                    <div class="fs-4">CHIIKAWA路跑</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card1-2.png" class="card-img-top" alt="IP聯名-活動報名圖片-2">
+                                <div class="card-body">
+                                    <span class="badge">報名中</span>
+                                    <div class="fs-4">史酷比路跑</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card1-3.png" class="card-img-top" alt="IP聯名-活動報名圖片-3">
+                                <div class="card-body">
+                                    <span class="badge">報名截止</span>
+                                    <div class="fs-4">OVERWATCH路跑</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!------------------------------------------ 親子活動卡片  -------------------------------------------------->
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+                        tabindex="0">
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card2-1.png" class="card-img-top" alt="親子-活動報名圖片-1">
+                                <div class="card-body">
+                                    <span class="badge">報名中</span>
+                                    <div class="fs-4">汪汪隊親子路跑</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card2-2.png" class="card-img-top" alt="親子-活動報名圖片-2">
+                                <div class="card-body">
+                                    <span class="badge">報名中</span>
+                                    <div class="fs-4">全國親子路跑</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card2-3.png" class="card-img-top" alt="親子-活動報名圖片-3">
+                                <div class="card-body">
+                                    <span class="badge">報名截止</span>
+                                    <div class="fs-4">台中親子公益路跑</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!------------------------------------------ 一般賽事卡片  -------------------------------------------------->
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
+                        tabindex="0">
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card3-1.png" class="card-img-top" alt="一般-活動報名圖片-1">
+                                <div class="card-body">
+                                    <span class="badge">報名中</span>
+                                    <div class="fs-4">長榮世界路跑</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card3-2.png" class="card-img-top" alt="一般-活動報名圖片-2">
+                                <div class="card-body">
+                                    <span class="badge">報名中</span>
+                                    <div class="fs-4">台中國道馬拉松</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="./activity-done.html">
+                            <div class="card shadow">
+                                <img src="./homepage-img/card3-3.png" class="card-img-top" alt="一般-活動報名圖片-3">
+                                <div class="card-body">
+                                    <span class="badge">報名截止</span>
+                                    <div class="fs-4">台南市區路跑</div>
+                                    <div class="fs-6">活動簡介...</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!---------------------------------------------- 月曆 ---------------------------------------------->
+            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                <div class="calender">
+                    <ul class="month">
+                        <li>
+                            <span class="month-text">January</span>
+                            <span class="year-text">2016</span>
+                        </li>
+                        <span class="prev">&#10094;</span>
+                        <span class="next">&#10095;</span>
+                    </ul>
+                    <ul class="weeks">
+                        <li>SAT</li>
+                        <li>SUN</li>
+                        <li>MON</li>
+                        <li>TUE</li>
+                        <li>WED</li>
+                        <li>THU</li>
+                        <li>FRI</li>
+                    </ul>
+                    <ul class="days"></ul>
+                </div>
+                <div class="result"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-body footer-top d-flex flex-column justify-content-between">
+            <div class="title">聯絡我們</div>
+            <ul class="contact-info d-flex flex-column justify-content-between">
+                <li>
+                    <a href="">信箱：fcusport@gmail.com</a>
+                </li>
+                <li>
+                    <a href="">電話：(04)2451-7250#5985</a>
+                </li>
+                <li>
+                    <a href="">地址：台中市西屯區文華路100號</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-body footer-middle">
+            <ul class="more-info d-flex flex-column justify-content-between">
+                <li>
+                    <a href="">影音製作服務</a>
+                </li>
+                <li>
+                    <a href="">服務條款</a>
+                </li>
+                <li>
+                    <a href="">隱私權政策</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-body footer-bottom d-flex justify-content-between">
+            <a href="" class="social-icon social-icon-line"></a>
+            <a href="" class="social-icon social-icon-ig"></a>
+            <a href="" class="social-icon social-icon-fb"></a>
+            <a href="" class="social-icon social-icon-yt"></a>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let result = document.querySelector('.result')
+        let calender = document.querySelector(".calender"),//container of calender
+            topDiv = document.querySelector('.month'),
+            monthDiv = calender.querySelector(".month-text"),//h1 of monthes
+            yearDiv = calender.querySelector('.year-text'),//h2 for years
+            weekDiv = calender.querySelector(".weeks"),//week container
+            dayNames = weekDiv.querySelectorAll("li"),//dayes name
+            dayItems = calender.querySelector(".days"),//date of day container
+            prev = calender.querySelector(".prev"),
+            next = calender.querySelector(".next"),
+
+
+            years = new Date().getFullYear(),
+            monthes = new Date(new Date().setFullYear(years)).getMonth(),
+            lastDayOfMonth = new Date(new Date(new Date().setMonth(monthes + 1)).setDate(0)).getDate(),
+            dayOfFirstDateOfMonth = new Date(new Date(new Date().setMonth(monthes)).setDate(1)).getDay(),
+
+            // array to define name of monthes
+            monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"],
+            colors = ['#FFA549', '#ABABAB', '#1DABB8', '#953163', '#E7DF86', '#E01931', '#92F22A', '#FEC606', '#563D28', '#9E58DC', '#48AD01', '#0EBB9F'],
+            i,//counter for day before month first day in week
+            x,//counter for prev , next
+            counter;//counter for day of month  days;
+
+
+        //display dayes of month in items
+        function days(x) {
+            'use strict';
+            dayItems.innerHTML = "";
+            monthes = monthes + x;
+
+            if (monthes > 11) {
+                years = years + 1;
+                monthes = new Date(new Date(new Date().setFullYear(years)).setMonth(0)).getMonth();
+            }
+            if (monthes < 0) {
+                years = years - 1;
+                monthes = new Date(new Date(new Date().setFullYear(years)).setMonth(11)).getMonth();
+            }
+            lastDayOfMonth = new Date(new Date(new Date(new Date().setFullYear(years)).setMonth(monthes + 1)).setDate(0)).getDate();
+            dayOfFirstDateOfMonth = new Date(new Date(new Date(new Date().setFullYear(years)).setMonth(monthes)).setDate(1)).getDay();
+            yearDiv.innerHTML = years;
+            monthDiv.innerHTML = monthNames[monthes];
+            for (i = 0; i <= dayOfFirstDateOfMonth; i = i + 1) {
+                if (dayOfFirstDateOfMonth === 6) { break; }
+                dayItems.innerHTML += "<li> - </li>";
+            }
+            for (counter = 1; counter <= lastDayOfMonth; counter = counter + 1) {
+                dayItems.innerHTML += "<li>" + (counter) + "</li>";
+
+
+            }
+            // topDiv.style.background = colors[monthes];
+            // dayItems.style.background = colors[monthes];
+            let answer = Math.floor(Math.random() * lastDayOfMonth) + 1
+            if (monthes === new Date().getMonth() && years === new Date().getFullYear()) {
+                dayItems.children[new Date().getDate() + dayOfFirstDateOfMonth].textContent = 'Today';
+                dayItems.children[new Date().getDate() + dayOfFirstDateOfMonth].style.color = "#009FE7";
+                dayItems.children[new Date().getDate() + dayOfFirstDateOfMonth].style.fontSize = "14px";
+                dayItems.children[new Date().getDate() + dayOfFirstDateOfMonth].style.lineHeight = "24px";
+                dayItems.children[answer].style.background = "#ff6D35";
+                dayItems.children[answer].style.color = "#ffffff";
+                let choice = dayItems.children[answer]
+                choice.addEventListener('click', () => {
+                    result.innerHTML = `<div class="card1" style="width: 20rem;">
+                      <div class="card-body">
+                      <h4 class="card-title" style="color: #ff6D35">${choice.textContent}號</h4>
+                      <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+                      <p class="card-text"><a href="activity-done.html">北部：Chiikawa路跑</a><br><a href="acrivity-done.html">中部：台中親子公益路跑</a></p>
+                      </div>
+                      </div>`
+                });
+                for (i = 1; i <= lastDayOfMonth; i++) {
+                    if (i !== answer) {
+                        let choice0 = dayItems.children[i]
+                        console.log(choice0)
+                        choice0.addEventListener('click', () => {
+                            if (choice0.textContent == 'Today') {
+                                result.innerHTML =
+                                    `<div class="card1" style="width: 20rem;">
+                                <div class="card-body">
+                                <h4 class="card-title" style="color: #ff6D35">${choice0.textContent}</h4>
+                                <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+                                <p class="card-text1">暫無活動資訊</p>
+                                </div>
+                                </div>`;
+                            }
+                            else {
+                                result.innerHTML =
+                                    `<div class="card1" style="width: 20rem;">
+                                <div class="card-body">
+                                <h4 class="card-title" style="color: #ff6D35">${choice0.textContent}號</h4>
+                                <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+                                <p class="card-text1">暫無活動資訊</p>
+                                </div>
+                                </div>`;
+                            }
+                        });
+                    }
+                }
+            }
+        }
+        prev.onclick = function () {
+            'use strict';
+            days(-1);
+        };
+        next.onclick = function () {
+            'use strict';
+            days(1);
+        };
+        days(0);
+
+
+    </script>
+</body>
+
+</html>
