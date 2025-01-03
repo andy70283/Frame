@@ -1,5 +1,6 @@
-import './assets/main.css'
-
+// import './assets/main.css'
+// 引入共通使用的css樣式
+import './assets/css/nav-footer.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
